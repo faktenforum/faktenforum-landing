@@ -27,6 +27,21 @@
     }
   },
   "locale": "de",
+  "login": {
+    "button": {
+      "login": "Anmelden"
+    },
+    "buttton": {
+      "signup": "Registriere dich"
+    },
+    "forgotPassword": "Passwort vergessen?",
+    "label": {
+      "email": "Email",
+      "password": "Passwort"
+    },
+    "registerCallToAction": "Du hast noch keinen Account?",
+    "title": "Anmelden"
+  },
   "submitPage": {
     "acknowledgement": "Vielen Dank für Ihren Beitrag!",
     "claim": {

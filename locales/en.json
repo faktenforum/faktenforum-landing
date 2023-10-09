@@ -27,6 +27,21 @@
     }
   },
   "locale": "en",
+  "login": {
+    "button": {
+      "login": "Sign in"
+    },
+    "buttton": {
+      "signup": "Sign Up"
+    },
+    "forgotPassword": "Forgot Password?",
+    "label": {
+      "email": "Email",
+      "password": "Password"
+    },
+    "registerCallToAction": "Don't have an account?",
+    "title": "Sign in"
+  },
   "submitPage": {
     "acknowledgement": "Thank your for contributing!",
     "claim": {
@@ -64,7 +79,7 @@
       "file": "Upload a file",
       "link": "Direct link"
     },
-    "text": "You can submit a claim in three different ways: upload a file, provide a direct link to a file or describe a misinformation you witnessed. Leave your email address so we can get back to you!",
+    "text": "You can submit a claim in three different ways: upload a file, provide a direct link to a file or escribe a misinformation you witnessed. Leave your email address so we can get back to you!",
     "title": "Submit a claim"
   }
 }
