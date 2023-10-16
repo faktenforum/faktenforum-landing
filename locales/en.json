@@ -1,4 +1,17 @@
 {
+  "account": {
+    "button": {
+      "email": "Update email",
+      "password": "Update password"
+    },
+    "label": {
+      "confirm": "Confirm Password",
+      "details": "Details:",
+      "password": "Password",
+      "sessions": "Sessions:"
+    },
+    "title": "Account"
+  },
   "common": {
     "add": "add",
     "no": "no",

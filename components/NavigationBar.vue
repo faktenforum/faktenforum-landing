@@ -26,18 +26,28 @@
       <v-img src="/images/logo-horizontal-red.png" height="60" width="209" alt="Faktenforum Logo" />
     </div>
 
-    <template v-slot:append>
+    <template v-slot:append v-if="status !== 'authenticated'">
       <v-btn color="primary" class="px-6" variant="text">What is Faktenforum</v-btn>
       <v-btn color="primary" class="px-6" variant="text">News</v-btn>
       <v-btn color="primary" class="pe-10 mr-6" variant="text">FAQ</v-btn>
-      <NuxtLink to="/join">
+      <NuxtLink to="/login">
         <v-btn color="white" class="px-10 color-primary--text" variant="flat">Join</v-btn>
       </NuxtLink>
+    </template>
+    <template v-slot:append v-if="status === 'authenticated'">
+      <v-btn
+        color="white"
+        class="px-10 color-primary--text"
+        variant="flat"
+        @click="signOut({ callbackUrl: '/login', redirect: true })"
+        >Logout</v-btn
+      >
     </template>
   </v-app-bar>
 </template>
 <script lang="ts" setup>
 const { locale, availableLocales } = useI18n({ useScope: "global" });
+const { status, data: user, signOut } = useAuth();
 </script>
 <style scoped>
 .color-primary--text {

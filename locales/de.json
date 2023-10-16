@@ -1,4 +1,17 @@
 {
+  "account": {
+    "button": {
+      "email": "Email speichern",
+      "password": "Password erneuern"
+    },
+    "label": {
+      "confirm": "Bestätige Password",
+      "details": "Details:",
+      "password": "Password",
+      "sessions": "Sessions:"
+    },
+    "title": "Account"
+  },
   "common": {
     "add": "hinzufügen",
     "no": "nein",

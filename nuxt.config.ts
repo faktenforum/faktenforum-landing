@@ -3,9 +3,41 @@
 export default defineNuxtConfig({
   ssr: true,
   // devtools: { enabled: true },
-  modules: ["@nuxtjs/i18n", "vuetify-nuxt-module", "@vueuse/nuxt"],
+  modules: [
+    "@pinia/nuxt",
+    "@sidebase/nuxt-auth",
+    "@nuxtjs/i18n",
+    "vuetify-nuxt-module",
+    "@vueuse/nuxt"
+  ],
   experimental: {
     inlineSSRStyles: false
+  },
+  auth: {
+    provider: {
+      type: "local",
+      pages: { login: "/login" },
+
+      endpoints: {
+        signIn: { path: "/login", method: "post" },
+        signOut: { path: "/logout", method: "post" },
+        signUp: { path: "/register", method: "post" },
+        getSession: { path: "/session", method: "get" }
+      },
+      sessionDataType: {
+        id: "string",
+        email: "string",
+        role: "ADMIN | USER"
+      }
+    },
+    session: {
+      enableRefreshPeriodically: 600000, // 10 minutes
+      enableRefreshOnWindowFocus: true
+    },
+    baseURL: "/api/auth",
+    isEnabled: true
+
+    // Whether to periodically refresh the session. Change this to `true` for a refresh every seconds or set this to a number like `5000` for a refresh every 5000 milliseconds (aka: 5 seconds)    enableSessionRefreshPeriodically: false,    // Whether to refresh the session whenever a window focus event happens, i.e, when your user refocuses the window. Set this to `false` to turn this off    enableSessionRefreshOnWindowFocus: true,
   },
 
   i18n: {
@@ -81,5 +113,15 @@ export default defineNuxtConfig({
       styles: { configFile: "/assets/main.scss" } // true | 'none' | 'expose' | 'sass' | { configFile: string },
     }
   },
-  css: ["vuetify/lib/styles/main.sass"]
+  css: ["vuetify/lib/styles/main.sass"],
+  vite: {
+    server: {
+      proxy: {
+        "/api/": {
+          target: "http://127.0.0.0:8083/",
+          ws: true
+        }
+      }
+    }
+  }
 });
