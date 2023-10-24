@@ -1,14 +1,117 @@
 {
+  "$vuetify": {
+    "badge": "Badge",
+    "calendar": {
+      "moreEvents": "{0} more"
+    },
+    "carousel": {
+      "ariaLabel": {
+        "delimiter": "Carousel slide {0} of {1}"
+      },
+      "next": "Next visual",
+      "prev": "Previous visual"
+    },
+    "close": "Close",
+    "dataFooter": {
+      "firstPage": "First page",
+      "itemsPerPageAll": "All",
+      "itemsPerPageText": "Items per page:",
+      "lastPage": "Last page",
+      "nextPage": "Next page",
+      "pageText": "{0}-{1} of {2}",
+      "prevPage": "Previous page"
+    },
+    "dataIterator": {
+      "loadingText": "Loading items...",
+      "noResultsText": "No matching records found"
+    },
+    "dataTable": {
+      "ariaLabel": {
+        "activateAscending": "Activate to sort ascending.",
+        "activateDescending": "Activate to sort descending.",
+        "activateNone": "Activate to remove sorting.",
+        "sortAscending": "Sorted ascending.",
+        "sortDescending": "Sorted descending.",
+        "sortNone": "Not sorted."
+      },
+      "itemsPerPageText": "Rows per page:",
+      "sortBy": "Sort by"
+    },
+    "datePicker": {
+      "cancel": "Cancel",
+      "header": "Enter date",
+      "input": {
+        "placeholder": "Enter date"
+      },
+      "ok": "OK",
+      "range": {
+        "header": "Enter dates",
+        "title": "Select dates"
+      },
+      "title": "Select date"
+    },
+    "dateRangeInput": {
+      "divider": "to"
+    },
+    "fileInput": {
+      "counter": "{0} files",
+      "counterSize": "{0} files ({1} in total)"
+    },
+    "infiniteScroll": {
+      "empty": "No more",
+      "loadMore": "Load more"
+    },
+    "input": {
+      "appendAction": "{0} appended action",
+      "clear": "Clear {0}",
+      "otp": "Please enter OTP character {0}",
+      "prependAction": "{0} prepended action"
+    },
+    "loading": "Loading...",
+    "noDataText": "No data available",
+    "open": "Open",
+    "pagination": {
+      "ariaLabel": {
+        "currentPage": "Page {0}, Current page",
+        "first": "First page",
+        "last": "Last page",
+        "next": "Next page",
+        "page": "Go to page {0}",
+        "previous": "Previous page",
+        "root": "Pagination Navigation"
+      }
+    },
+    "rating": {
+      "ariaLabel": {
+        "item": "Rating {0} of {1}"
+      }
+    },
+    "stepper": {
+      "next": "Next",
+      "prev": "Previous"
+    },
+    "timePicker": {
+      "am": "AM",
+      "pm": "PM"
+    }
+  },
   "account": {
     "button": {
       "email": "Update email",
       "password": "Update password"
     },
     "label": {
+      "changePassword": "Change Password:",
       "confirm": "Confirm Password",
       "details": "Details:",
+      "newPassword": "New password:",
+      "oldPassword": "Old Password: ",
       "password": "Password",
       "sessions": "Sessions:"
+    },
+    "notification": {
+      "email": "Changed e-mail sucessfully",
+      "password": "Changed password sucessfully"
     },
     "title": "Account"
   },
@@ -22,6 +125,17 @@
     "update": "update",
     "upload": "upload",
     "yes": "yes"
+  },
+  "formRules": {
+    "email": "E-mail not valid",
+    "password": {
+      "length": "Password has to be at least 8 characters",
+      "lowerCase": "Password has to include at least one small letter",
+      "number": "Password has to include at least one number",
+      "specialCharacter": "Password has to include at least one of special character:",
+      "upperCase": "Password has to include at least one capital letter"
+    },
+    "url": "URL not valid"
   },
   "landingPage": {
     "callToActions": {

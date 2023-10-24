@@ -8,10 +8,19 @@
  * The script can optional load a second sheet to overwrite the main sheet, we add a new sheet for a
  * branch so changes for different features are kept separate.
  */
+
+
 const fs = require("fs");
 const path = require("path");
 const { google } = require("googleapis");
 const MarkdownIt = require("markdown-it");
+
+async function loadVuetifyLocales() {
+  return {
+    de:  (await import("vuetify/lib/locale/de.mjs")).default,
+    en: (await import("vuetify/lib/locale/en.mjs")).default
+  }
+}
 
 const simpleMd = new MarkdownIt("zero").enable(["emphasis", "link"]);
 
@@ -99,6 +108,7 @@ function sortObject(obj) {
 
 (async () => {
   await loadSheet("Sheet1");
+  const vuetifyLocales = await loadVuetifyLocales();
 
   if (process.argv[2] && process.argv[2] !== "main") {
     try {
@@ -108,9 +118,10 @@ function sortObject(obj) {
 
   for (const locale in localeData) {
     console.log("Updating " + locale);
+    const localData = {...localeData[locale], $vuetify: vuetifyLocales[locale]};
     fs.writeFileSync(
       path.join(__dirname, "../locales", locale + ".json"),
-      JSON.stringify(sortObject(localeData[locale]), null, 2) + "\n"
+      JSON.stringify(sortObject(localData), null, 2) + "\n"
     );
   }
 })().catch((err) => {

@@ -60,7 +60,7 @@
 </template>
 <script setup lang="ts">
 import { nanoid } from "nanoid";
-import { Claim } from "./types";
+import type { Claim } from "./types";
 
 // Component Properties Types
 

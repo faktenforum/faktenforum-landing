@@ -39,8 +39,8 @@
   </div>
 </template>
 <script setup lang="ts">
-import { Claim } from "./types";
-
+import type { Claim } from "./types";
+const { isValidUrl } = useFormValidation();
 // Component Properties Types
 
 type SourceListProps = {

@@ -41,7 +41,7 @@ type SourceListProps = {
 };
 const props = defineProps<SourceListProps>();
 const emit = defineEmits(["update:modelValue", "add"]);
-
+const { isValidUrl } = useFormValidation();
 const value = ref("");
 
 onMounted(() => {

@@ -8,7 +8,8 @@ export default defineNuxtConfig({
     "@sidebase/nuxt-auth",
     "@nuxtjs/i18n",
     "vuetify-nuxt-module",
-    "@vueuse/nuxt"
+    "@vueuse/nuxt",
+    "dayjs-nuxt"
   ],
   experimental: {
     inlineSSRStyles: false
@@ -38,6 +39,11 @@ export default defineNuxtConfig({
     isEnabled: true
 
     // Whether to periodically refresh the session. Change this to `true` for a refresh every seconds or set this to a number like `5000` for a refresh every 5000 milliseconds (aka: 5 seconds)    enableSessionRefreshPeriodically: false,    // Whether to refresh the session whenever a window focus event happens, i.e, when your user refocuses the window. Set this to `false` to turn this off    enableSessionRefreshOnWindowFocus: true,
+  },
+  dayjs: {
+    locales: ["en", "de"],
+    plugins: ["relativeTime"],
+    defaultLocale: "en"
   },
 
   i18n: {

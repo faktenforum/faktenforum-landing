@@ -50,13 +50,14 @@ async function login() {
   try {
     const result = await signIn(
       { username: username.value, password: password.value },
-      { redirect: true, callbackUrl: "/dashboard" }
+      { redirect: true }
     );
-    console.log("result", result);
+
+    console.log("result", data.value);
   } catch (error) {
     console.log("Error", JSON.stringify(error));
     console.log("type", typeof error);
-    addNotification({ title: "Wrong username or password", messageType: "error", timeout: 5000 });
+    addNotification({ title: "Wrong username or password", type: "error", timeout: 5000 });
   }
 }
 </script>
