@@ -1,10 +1,11 @@
 import type { FetchOptions } from "ofetch";
 import { defineNuxtPlugin } from "#app";
 import AccountModule from "~/repository/modules/account";
-
+import UsersModule from "~/repository/modules/users";
 /** ApiInstance interface provides us with good typing */
 interface IApiInstance {
   account: AccountModule;
+  users: UsersModule;
   usePendingRequests: () => { pendingRequests: Record<string, boolean> };
 }
 
@@ -26,6 +27,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   /** an object containing all repositories we need to expose */
   const modules: IApiInstance = {
     account: new AccountModule(fetchOptions, pendingRequests),
+    users: new UsersModule(fetchOptions, pendingRequests),
     usePendingRequests: () => ({
       pendingRequests
     })

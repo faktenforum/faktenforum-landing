@@ -28,6 +28,7 @@
 </template>
 <script lang="ts" setup>
 import type { operations, components, paths } from "~/gen/api-types";
+const { toLocalRelativeTime, toLocalDateTime } = useDateFormatter();
 
 type Session = components["schemas"]["Session"];
 type SessionListProps = {
@@ -52,8 +53,8 @@ async function deleteSession(id: string) {
 }
 
 function getTitle(session: Session) {
-  return `Session created ${dayjs(session.createdAt).fromNow()} ago will expire in ${dayjs(
-    session.expiresAt
-  ).fromNow()}`;
+  return `Session created ${toLocalDateTime(
+    session.createdAt
+  )} ago will expire in ${toLocalRelativeTime(session.expiresAt)}`;
 }
 </script>

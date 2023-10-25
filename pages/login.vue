@@ -39,6 +39,7 @@ definePageMeta({
   middleware: "auth",
   auth: { unauthenticatedOnly: true, navigateAuthenticatedTo: "/dashboard" }
 });
+preloadRouteComponents("/dashboard");
 const store = useNotificationStore();
 const { addNotification } = store;
 

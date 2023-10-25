@@ -37,9 +37,12 @@ export interface paths {
   };
   "/api/users": {
     get: operations["userControllerGetAllUsers"];
+    post: operations["userControllerCreateUser"];
   };
   "/api/users/{id}": {
     get: operations["userControllerGetUserById"];
+    put: operations["userControllerUpdateUserById"];
+    delete: operations["userControllerDeleteUserById"];
   };
 }
 
@@ -128,6 +131,27 @@ export interface components {
       access_token?: string;
       access_token_expires_in?: number;
     };
+    UserDTO: {
+      id: string;
+      email: string;
+      /** @enum {string} */
+      role: "ADMIN" | "USER";
+      createdAt: string;
+      updatedAt: string;
+    };
+    UserCreateDTO: {
+      /** Format: email */
+      email: string;
+      password: string;
+      /** @enum {string} */
+      role: "ADMIN" | "USER";
+    };
+    UserUpdateDTO: {
+      /** Format: email */
+      email?: string;
+      /** @enum {string} */
+      role?: "ADMIN" | "USER";
+    };
   };
   responses: never;
   parameters: never;
@@ -143,11 +167,6 @@ export type external = Record<string, never>;
 export interface operations {
 
   accountControllerSessions: {
-    parameters: {
-      header: {
-        Authorization: string;
-      };
-    };
     responses: {
       /** @description Success */
       200: {
@@ -171,9 +190,6 @@ export interface operations {
   };
   accountControllerDeleteSession: {
     parameters: {
-      header: {
-        Authorization: string;
-      };
       path: {
         id: string;
       };
@@ -200,11 +216,6 @@ export interface operations {
     };
   };
   accountControllerUpdateEmail: {
-    parameters: {
-      header: {
-        Authorization: string;
-      };
-    };
     requestBody?: {
       content: {
         "application/json": components["schemas"]["Email"];
@@ -232,11 +243,6 @@ export interface operations {
     };
   };
   accountControllerUpdatePassword: {
-    parameters: {
-      header: {
-        Authorization: string;
-      };
-    };
     requestBody?: {
       content: {
         "application/json": components["schemas"]["PasswordUpdate"];
@@ -284,11 +290,6 @@ export interface operations {
     };
   };
   authControllerAccount: {
-    parameters: {
-      header: {
-        Authorization: string;
-      };
-    };
     responses: {
       /** @description Success */
       200: {
@@ -311,11 +312,6 @@ export interface operations {
     };
   };
   authControllerLogout: {
-    parameters: {
-      header: {
-        Authorization: string;
-      };
-    };
     responses: {
       /** @description Unauthorized */
       401: {
@@ -343,16 +339,13 @@ export interface operations {
     responses: {
       /** @description Success */
       200: {
-        content: never;
+        content: {
+          "application/json": components["schemas"]["UserDTO"];
+        };
       };
     };
   };
   claimsControllerGetClaims: {
-    parameters: {
-      header: {
-        Authorization: string;
-      };
-    };
     responses: {
       /** @description Unauthorized */
       401: {
@@ -370,9 +363,6 @@ export interface operations {
   };
   claimsControllerGetClaim: {
     parameters: {
-      header: {
-        Authorization: string;
-      };
       path: {
         id: string;
       };
@@ -393,12 +383,40 @@ export interface operations {
     };
   };
   userControllerGetAllUsers: {
-    parameters: {
-      header: {
-        Authorization: string;
+    responses: {
+      /** @description Success */
+      200: {
+        content: {
+          "application/json": components["schemas"]["UserDTO"][];
+        };
+      };
+      /** @description Unauthorized */
+      401: {
+        content: {
+          "application/json": components["schemas"]["Unauthorized"];
+        };
+      };
+      /** @description Forbidden */
+      403: {
+        content: {
+          "application/json": components["schemas"]["Forbidden"];
+        };
+      };
+    };
+  };
+  userControllerCreateUser: {
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["UserCreateDTO"];
       };
     };
     responses: {
+      /** @description Success */
+      200: {
+        content: {
+          "application/json": components["schemas"]["UserDTO"];
+        };
+      };
       /** @description Unauthorized */
       401: {
         content: {
@@ -415,14 +433,76 @@ export interface operations {
   };
   userControllerGetUserById: {
     parameters: {
-      header: {
-        Authorization: string;
-      };
       path: {
         id: string;
       };
     };
     responses: {
+      /** @description Success */
+      200: {
+        content: {
+          "application/json": components["schemas"]["UserDTO"];
+        };
+      };
+      /** @description Unauthorized */
+      401: {
+        content: {
+          "application/json": components["schemas"]["Unauthorized"];
+        };
+      };
+      /** @description Forbidden */
+      403: {
+        content: {
+          "application/json": components["schemas"]["Forbidden"];
+        };
+      };
+    };
+  };
+  userControllerUpdateUserById: {
+    parameters: {
+      path: {
+        id: string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["UserUpdateDTO"];
+      };
+    };
+    responses: {
+      /** @description Success */
+      200: {
+        content: {
+          "application/json": components["schemas"]["UserDTO"];
+        };
+      };
+      /** @description Unauthorized */
+      401: {
+        content: {
+          "application/json": components["schemas"]["Unauthorized"];
+        };
+      };
+      /** @description Forbidden */
+      403: {
+        content: {
+          "application/json": components["schemas"]["Forbidden"];
+        };
+      };
+    };
+  };
+  userControllerDeleteUserById: {
+    parameters: {
+      path: {
+        id: string;
+      };
+    };
+    responses: {
+      /** @description Success */
+      200: {
+        content: {
+          "application/json": components["schemas"]["UserDTO"];
+        };
+      };
       /** @description Unauthorized */
       401: {
         content: {

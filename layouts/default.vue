@@ -4,6 +4,7 @@
   <NavigationBar></NavigationBar>
 
   <slot></slot>
+  <AppDialog></AppDialog>
   <AppNotifications></AppNotifications>
 </template>
 

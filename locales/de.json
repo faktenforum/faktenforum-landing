@@ -115,11 +115,35 @@
     },
     "title": "Account"
   },
+  "admin": {
+    "user": {
+      "createTitle": "Benutzer anlegen",
+      "title": "Benutzer"
+    },
+    "users": {
+      "table": {
+        "email": "Email",
+        "role": "Rolle"
+      },
+      "title": "Benutzer des Faktenforums"
+    }
+  },
   "common": {
     "add": "hinzufügen",
+    "cancel": "abbrechen",
+    "confirmPassword": "Passwort bestätigen",
+    "create": "erstellen",
+    "delete": "löschen",
+    "edit": "editieren",
     "no": "nein",
+    "password": "Passwort",
+    "save": "speichern",
     "source": "Quelle",
     "submit": "senden",
+    "table": {
+      "createdAt": "Erstellt am",
+      "updatedAt": "Zuletzt aktualisert am"
+    },
     "test": "test_de",
     "type": "Typ",
     "update": "update",

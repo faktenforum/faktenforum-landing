@@ -115,11 +115,35 @@
     },
     "title": "Account"
   },
+  "admin": {
+    "user": {
+      "createTitle": "Create User",
+      "title": "User"
+    },
+    "users": {
+      "table": {
+        "email": "Email",
+        "role": "Role"
+      },
+      "title": "Faktenforum users"
+    }
+  },
   "common": {
     "add": "add",
+    "cancel": "cancel",
+    "confirmPassword": "Confirm Password",
+    "create": "create",
+    "delete": "delete ",
+    "edit": "edit",
     "no": "no",
+    "password": "Password",
+    "save": "save",
     "source": "Source",
     "submit": "submit",
+    "table": {
+      "createdAt": "Created at",
+      "updatedAt": "Updated at"
+    },
     "test": "test",
     "type": "Type",
     "update": "update",

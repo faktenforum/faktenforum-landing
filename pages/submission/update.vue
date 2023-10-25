@@ -50,8 +50,13 @@
   </v-container>
 </template>
 <script lang="ts" setup>
+definePageMeta({
+  middleware: [],
+  layout: "default",
+  meta: {}
+});
 import { nanoid } from "nanoid";
-import { Claim } from "@/components/claim/types";
+import type { Claim } from "@/components/claim/types";
 
 const claim = ref<Claim>({
   title: "",
