@@ -27,7 +27,8 @@
           size="large"
           variant="outlined"
           class="unfilled-button"
-          @click="submit()"
+          :loading="pendingRequests[`submit.claim`]"
+          @click="submit('submit.claim')"
         >
           {{ $t("common.submit") }}
         </v-btn>
@@ -36,18 +37,24 @@
   </v-container>
 </template>
 <script lang="ts" setup>
+import { nanoid } from "nanoid";
+import type { Claim } from "@/components/claim/types";
+import type { components } from "@/gen/api-types";
 definePageMeta({
   middleware: [],
   layout: "default",
   meta: {}
 });
-preloadRouteComponents("/submission/update");
+preloadRouteComponents("/submission/[token]");
+type ClaimCreateDTO = components["schemas"]["ClaimCreateDTO"];
+const { $api } = useNuxtApp();
+const { pendingRequests } = $api.usePendingRequests();
 const tab = ref<null | string>(null);
-import type { Claim } from "@/components/claim/types";
+
 const claim = reactive<Claim>({
   title: "",
   description: "",
-  sources: []
+  resources: []
 });
 const link = ref("");
 
@@ -56,7 +63,7 @@ watch(link, (value) => {
 });
 
 const claimHasContent = computed(() => {
-  if (claim.sources.length > 0) {
+  if (claim.resources.length > 0) {
     return false;
   }
   if (claim.description.length > 0) {
@@ -68,9 +75,45 @@ const claimHasContent = computed(() => {
   return true;
 });
 
-async function submit() {
-  console.log("submit", link.value);
-  await navigateTo("/submission/update");
+async function submit(requestId: string) {
+  try {
+    const files: {
+      file: File;
+      formName: string;
+    }[] = [];
+
+    const body: ClaimCreateDTO = {
+      title: claim.title,
+      description: claim.description,
+      resources: claim.resources.map((file) => ({
+        originalUrl: file.originalUrl,
+        files: file.files.map((claimSourceFile) => {
+          const fileIndex = files.length;
+          const fileFormName = { url: `file-${fileIndex}` };
+          if (claimSourceFile.file) {
+            files.push({
+              file: claimSourceFile.file,
+              formName: "files"
+            });
+          } else {
+            throw Error("File not found");
+          }
+          return fileFormName;
+        })
+      }))
+    };
+
+    //append files
+
+    if (link.value !== "" && body.resources) {
+      body.resources.push({ id: nanoid(), originalUrl: link.value, files: [] });
+    }
+
+    const { token } = await $api.submission.submitClaim(body, files, requestId);
+    await navigateTo(`/submission/${token}`);
+  } catch (error) {
+    // noop - handled by api error handler
+  }
 }
 </script>
 <style scoped>

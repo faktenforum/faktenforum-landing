@@ -56,6 +56,9 @@
   </v-container>
 </template>
 <script lang="ts" setup>
+import { VDataTableServer } from "vuetify/lib/labs/components.mjs";
+import type { VDataTable } from "vuetify/lib/labs/components.mjs";
+import { useDialogStore } from "@/stores/dialog";
 definePageMeta({
   middleware: ["auth", "roles"],
   layout: "sidebar",
@@ -63,9 +66,6 @@ definePageMeta({
     roles: ["ADMIN"]
   }
 });
-import { VDataTableServer } from "vuetify/lib/labs/components.mjs";
-import type { VDataTable } from "vuetify/lib/labs/components.mjs";
-import { useDialogStore } from "@/stores/dialog";
 type UnwrapReadonlyArrayType<A> = A extends Readonly<Array<infer I>>
   ? UnwrapReadonlyArrayType<I>
   : A;

@@ -34,7 +34,7 @@ class AuthModule extends HttpFactory {
   async useGetSessions() {
     return this.use<
       paths["/api/auth/account/sessions"]["get"]["responses"][200]["content"]["application/json"]
-    >(`/api${this.RESOURCE}/sessions`);
+    >(`${this.RESOURCE}/sessions`);
   }
 }
 

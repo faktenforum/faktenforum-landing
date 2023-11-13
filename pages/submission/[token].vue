@@ -1,7 +1,7 @@
 <template>
   <v-container class="pa-0 my-0 fluid d-flex flex-column" fluid>
     <v-sheet class="px-10 pt-16 h-100 flex-grow-1">
-      <v-form fast-fail>
+      <v-form fast-fail v-if="data">
         <h1 class="text-h5 text-color-primary pb-4">{{ $t("submitPage.source.title") }}</h1>
         <div class="text-caption pb-2">{{ $t("submitPage.source.subtitle") }}</div>
         <div class="pa-6 fluid d-flex flex-column background-color-primary solid-primary-outline">
@@ -11,6 +11,7 @@
           <v-text-field
             style="max-width: 361px"
             class=""
+            v-model="claim.title"
             variant="solo"
             density="compact"
             single-line
@@ -19,6 +20,7 @@
           <div class="pa-1">{{ $t("submitPage.info.description") }}</div>
           <v-textarea
             class=""
+            v-model="claim.description"
             variant="solo"
             density="compact"
             rows="3"
@@ -40,7 +42,13 @@
           </v-window>
         </div>
         <div class="d-flex justify-center py-12">
-          <v-btn color="primary" size="large" class="unfilled-button" @click="submit()">
+          <v-btn
+            color="primary"
+            size="large"
+            class="unfilled-button"
+            @click="submit('submission.[token].update')"
+            :loading="pendingRequests['submission.[token].update']"
+          >
             {{ $t("common.update") }}
           </v-btn>
         </div>
@@ -50,32 +58,73 @@
   </v-container>
 </template>
 <script lang="ts" setup>
+import { nanoid } from "nanoid";
+import type { Claim } from "@/components/claim/types";
 definePageMeta({
   middleware: [],
   layout: "default",
   meta: {}
 });
-import { nanoid } from "nanoid";
-import type { Claim } from "@/components/claim/types";
+const { $api } = useNuxtApp();
+const { pendingRequests } = $api.usePendingRequests();
+const { params } = useRoute();
 
-const claim = ref<Claim>({
-  title: "",
-  description: "",
-  sources: []
-});
+const { data, refresh } = await $api.submission.useGetSubmit(params.token as string);
+
+const { cloned: claim, sync } = useCloned<Claim>(data as Ref);
+onMounted(() => {});
+
+// const claim = ref<Claim>({
+//   title: "",
+//   description: "",
+//   sources: []
+// });
 
 const tab = ref<null | string>(null);
 
 function addLink(link: string) {
   console.log("addLink", link);
-  claim.value.sources.push({
-    key: nanoid(10),
-    sourceType: "",
-    sourceUrl: link
+  claim.value.resources.push({
+    id: nanoid(10),
+    originalUrl: link,
+    files: []
   });
 }
-function submit() {
-  console.log("submit", JSON.parse(JSON.stringify(claim.value)));
+async function submit(requestId: string) {
+  const files: {
+    file: File;
+    formName: string;
+  }[] = [];
+  const payload = {
+    title: claim.value.title,
+    description: claim.value.description,
+    resources: claim.value.resources.map((resource) => ({
+      id: isUUIDv4(resource.id) ? resource.id : undefined,
+      originalUrl: resource.originalUrl || undefined,
+      files: resource.files.map((file) => {
+        if (file.file) {
+          console.log("Add file uploads");
+          files.push({
+            file: file.file,
+            formName: "files"
+          });
+          return {
+            url: `file-${files.length - 1}`
+          };
+        }
+        return {
+          url: file.url
+        };
+      })
+    }))
+  };
+  try {
+    console.log("Update payload: ", payload);
+    await $api.submission.updateSubmit(params.token as string, payload, files, requestId);
+    await navigateTo(`/submission`);
+  } catch (error) {
+    // noop - handled by api error handler
+  }
 }
 </script>
 <style scoped>

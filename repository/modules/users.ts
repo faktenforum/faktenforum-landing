@@ -58,7 +58,7 @@ class AuthModule extends HttpFactory {
 
   async useGetUsers() {
     return this.use<paths["/api/users"]["get"]["responses"][200]["content"]["application/json"]>(
-      `/api${this.RESOURCE}`
+      `${this.RESOURCE}`
     );
   }
 

@@ -35,6 +35,16 @@ export interface paths {
   "/api/claims/{id}": {
     get: operations["claimsControllerGetClaim"];
   };
+  "/api/submission": {
+    post: operations["submissionControllerSubmitClaim"];
+  };
+  "/api/submission/{token}": {
+    get: operations["submissionControllerGetSubmission"];
+    put: operations["submissionControllerUpdateSubmission"];
+  };
+  "/api/submission/{token}/files/{fileId}": {
+    get: operations["submissionControllerGetSubmissionFile"];
+  };
   "/api/users": {
     get: operations["userControllerGetAllUsers"];
     post: operations["userControllerCreateUser"];
@@ -138,6 +148,52 @@ export interface components {
       role: "ADMIN" | "USER";
       createdAt: string;
       updatedAt: string;
+    };
+    BadRequest: {
+      /**
+       * @description The error name
+       * @default BAD_REQUEST
+       * @example BAD_REQUEST
+       */
+      name: string;
+      /** @description An error message */
+      message: string;
+      /**
+       * @description The status code of the exception
+       * @default 400
+       * @example 400
+       */
+      status: number;
+      /** @description A list of related errors */
+      errors?: components["schemas"]["GenericError"][];
+      /** @description The stack trace (only in development mode) */
+      stack?: string;
+    };
+    SubmissionResponse: {
+      token: string;
+    };
+    ClaimDTO: {
+      title?: string;
+      description?: string;
+      resources?: components["schemas"]["ClaimResourceDTO"][];
+      id: string;
+      createdAt: string;
+      updatedAt: string;
+    };
+    ClaimResourceDTO: {
+      id?: string;
+      originalUrl?: string;
+      files?: components["schemas"]["ClaimFileDTO"][];
+    };
+    ClaimFileDTO: {
+      name?: string;
+      url?: string;
+      size?: number;
+    };
+    ClaimCreateDTO: {
+      title?: string;
+      description?: string;
+      resources?: components["schemas"]["ClaimResourceDTO"][];
     };
     UserCreateDTO: {
       /** Format: email */
@@ -378,6 +434,80 @@ export interface operations {
       403: {
         content: {
           "application/json": components["schemas"]["Forbidden"];
+        };
+      };
+    };
+  };
+  submissionControllerSubmitClaim: {
+    requestBody?: {
+      content: {
+        "multipart/form-data": {
+          files?: string[];
+        };
+      };
+    };
+    responses: {
+      /** @description Success */
+      200: {
+        content: {
+          "application/json": components["schemas"]["SubmissionResponse"];
+        };
+      };
+      /** @description <File too long | Too many parts | Too many files | Field name too long | Field value too long | Too many fields | Unexpected field>  [fieldName] Example: File too long file1 */
+      400: {
+        content: {
+          "application/json": components["schemas"]["BadRequest"];
+        };
+      };
+    };
+  };
+  submissionControllerGetSubmission: {
+    parameters: {
+      path: {
+        token: string;
+      };
+    };
+    responses: {
+      /** @description Success */
+      200: {
+        content: {
+          "application/json": components["schemas"]["ClaimDTO"];
+        };
+      };
+    };
+  };
+  submissionControllerUpdateSubmission: {
+    parameters: {
+      path: {
+        token: string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ClaimCreateDTO"];
+      };
+    };
+    responses: {
+      /** @description Success */
+      200: {
+        content: {
+          "application/json": components["schemas"]["ClaimDTO"];
+        };
+      };
+    };
+  };
+  submissionControllerGetSubmissionFile: {
+    parameters: {
+      path: {
+        token: string;
+        fileId: string;
+      };
+    };
+    responses: {
+      /** @description File content */
+      200: {
+        content: {
+          "*/*": string;
         };
       };
     };

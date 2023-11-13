@@ -35,7 +35,7 @@ export default defineNuxtConfig({
       enableRefreshPeriodically: 600000, // 10 minutes
       enableRefreshOnWindowFocus: true
     },
-    baseURL: "/api/auth",
+    baseURL: "http://127.0.0.1:8083/api/auth",
     isEnabled: true
 
     // Whether to periodically refresh the session. Change this to `true` for a refresh every seconds or set this to a number like `5000` for a refresh every 5000 milliseconds (aka: 5 seconds)    enableSessionRefreshPeriodically: false,    // Whether to refresh the session whenever a window focus event happens, i.e, when your user refocuses the window. Set this to `false` to turn this off    enableSessionRefreshOnWindowFocus: true,
@@ -120,6 +120,7 @@ export default defineNuxtConfig({
     }
   },
   css: ["vuetify/lib/styles/main.sass"],
+
   vite: {
     server: {
       proxy: {

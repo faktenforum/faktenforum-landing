@@ -14,7 +14,14 @@ type CallParameters = {
   data?: object;
   extras?: object;
   requestId?: string;
+  contentType?: string;
 };
+
+export type FormFile = { file: File; formName: string };
+
+type FileCallParameters = {
+  files: FormFile[];
+} & CallParameters;
 
 class HttpFactory {
   private fetchOptions: Ref<FetchOptions>;
@@ -29,14 +36,33 @@ class HttpFactory {
     this.pendingRequests = pendingRequests;
   }
 
-  async call<T>({ method, url, data, extras, requestId }: CallParameters): Promise<T | null> {
+  private throwError(error: FetchError, redirect?: string) {
+    console.log(error.data);
+    const message = (error.data && error.data.message) || error.message;
+    throw createError({
+      statusCode: error?.statusCode,
+      statusMessage: message,
+      data: { ...error?.data, redirect: redirect || "/" },
+      fatal: true
+    });
+  }
+
+  async call<T>({ method, url, data, extras, requestId, contentType }: CallParameters): Promise<T> {
     const _extras = extras || {};
     try {
       if (requestId) {
         this.pendingRequests[requestId] = true;
       }
+      const options = {
+        ...this.fetchOptions.value
+      };
+      options.headers = (options.headers as any) || {};
+      if (contentType) {
+        (options["headers"] as any)["Content-Type"] = contentType;
+      }
+
       const res: T = await $fetch<T>(url, {
-        ...this.fetchOptions.value,
+        ...options,
         method,
         body: data,
         ..._extras
@@ -52,13 +78,44 @@ class HttpFactory {
       }
     }
   }
+
+  async fileCall<T>({
+    method,
+    url,
+    data,
+    files,
+    extras,
+    requestId
+  }: FileCallParameters): Promise<T> {
+    const payload = new FormData();
+    if (files) {
+      files.forEach((file) => {
+        payload.append("files", file.file, file.file.name);
+      });
+    }
+    if (data) {
+      payload.append("payload", JSON.stringify({ ...data }));
+    }
+    return this.call<T>({
+      method,
+      url,
+      data: payload,
+      extras,
+      requestId
+    });
+  }
+
   async use<T extends Record<string, any> | Ref<Record<string, any>>>(
     url: string | Ref<string>,
     options?: {
-      method: Methods;
+      method?: Methods;
       body?: Record<string, any> | Ref<Record<string, any>>;
       query?: Record<string, any> | Ref<Record<string, any>>;
       immediate?: boolean;
+      server?: boolean;
+      key?: string;
+      default?: () => T;
+      onErrorRedirect?: string;
     }
   ) {
     const fetchOptions = this.fetchOptions;
@@ -66,9 +123,12 @@ class HttpFactory {
       return {
         methods: options?.method,
         body: options?.body,
+        key: options?.key,
         query: options?.query,
         immediate: options?.immediate,
         baseURL: this.fetchOptions.value.baseURL,
+        server: options?.server,
+        default: options?.default,
         onRequest({ options }: any) {
           options.headers = options.headers || {};
           if (fetchOptions.value.headers && fetchOptions.value.headers && options.headers) {
@@ -77,18 +137,28 @@ class HttpFactory {
         }
       };
     });
-    console.log("opts", opts.value);
+
     const { data, error, execute, pending, refresh, status } = await useFetch<T>(
       url,
       opts.value as any
     );
+    if (error.value) {
+      this.throwError(error.value);
+    }
 
     watch(error, (err) => {
       if (err as any) {
-        console.log(JSON.stringify(error.value));
-        this.addNotification({ title: error.value?.message || "", type: "error", timeout: 5000 });
+        console.log("error 12", JSON.stringify(error.value));
+        throw createError({
+          statusCode: error.value?.statusCode,
+          statusMessage: error.value?.message,
+          data: { ...error.value?.data, redirect: options?.onErrorRedirect || "/" },
+          fatal: true
+        });
+        // this.addNotification({ title: error.value?.message || "", type: "error", timeout: 5000 });
       }
     });
+
     return { data, error, execute, pending, refresh, status };
   }
 }

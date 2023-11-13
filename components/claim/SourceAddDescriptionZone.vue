@@ -22,7 +22,7 @@ type SourceListProps = {
   modelValue: string;
 };
 const props = defineProps<SourceListProps>();
-const emit = defineEmits(["update:value", "add"]);
+const emit = defineEmits(["update:modelValue", "add"]);
 
 const value = useVModel(props, "modelValue", emit);
 </script>

@@ -8,7 +8,7 @@
       v-slot="{ dropZoneActive }"
     >
       <div
-        v-if="!(singleFile && value.sources.length > 0)"
+        v-if="!(singleFile && value.resources.length > 0)"
         class="flex-grow-1 d-flex flex-column justify-center"
         :style="{
           'background-color': dropZoneActive ? 'rgb(var(--v-theme-primary-darken-3' : 'transparent'
@@ -35,16 +35,16 @@
       <div v-else class="flex-grow-1 d-flex flex-column justify-center pa-10 align-center">
         <v-list lines="two" width="300px">
           <v-list-item
-            :title="value.sources[0].file?.name"
-            :subtitle="fileToSizeString(value.sources[0].file)"
+            :title="value.resources[0].files[0]?.name"
+            :subtitle="fileToSizeString(value.resources[0].files[0].size)"
           >
-            <template v-if="value.sources[0].file" v-slot:prepend>
+            <template v-if="value.resources[0].files" v-slot:prepend>
               <v-container fluid class="pa-0 pr-2 ma-0">
-                <v-img
-                  :width="70"
+                <claim-source-file-image
                   aspect-ratio="4/3"
-                  cover
-                  :src="fileToUrl(value.sources[0].file)"
+                  :width="70"
+                  :src="value.resources[0].files[0].url"
+                  :mimeType="value.resources[0].files[0].mimeType"
                 />
               </v-container>
             </template>
@@ -86,28 +86,44 @@ function handleFileDialogChange(event: Event) {
 function handleFiles(files: FileList | File[] | null) {
   if (files) {
     if (props.singleFile) {
-      value.value.sources.push({
-        key: nanoid(10),
-        file: files[0],
-        sourceType: "",
-        sourceUrl: ""
+      value.value.resources.push({
+        id: nanoid(10),
+        files: [
+          {
+            id: nanoid(10),
+            file: files[0],
+            url: URL.createObjectURL(files[0]),
+            name: files[0].name,
+            size: files[0].size,
+            mimeType: files[0].type
+          }
+        ],
+        originalUrl: ""
       });
       return;
     }
     for (let file of files) {
       console.log("Selected file:", file);
-      value.value.sources.push({
-        key: nanoid(10),
-        file,
-        sourceType: "",
-        sourceUrl: ""
+      value.value.resources.push({
+        id: nanoid(10),
+        files: [
+          {
+            id: nanoid(10),
+            file: files[0],
+            url: URL.createObjectURL(files[0]),
+            name: files[0].name,
+            size: files[0].size,
+            mimeType: files[0].type
+          }
+        ],
+        originalUrl: ""
       });
     }
   }
 }
 
 function clearFile() {
-  value.value.sources = [];
+  value.value.resources = [];
 }
 </script>
 

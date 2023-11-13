@@ -2,10 +2,12 @@ import type { FetchOptions } from "ofetch";
 import { defineNuxtPlugin } from "#app";
 import AccountModule from "~/repository/modules/account";
 import UsersModule from "~/repository/modules/users";
+import SubmissionModule from "~/repository/modules/submission";
 /** ApiInstance interface provides us with good typing */
 interface IApiInstance {
   account: AccountModule;
   users: UsersModule;
+  submission: SubmissionModule;
   usePendingRequests: () => { pendingRequests: Record<string, boolean> };
 }
 
@@ -14,9 +16,8 @@ export default defineNuxtPlugin((nuxtApp) => {
   const pendingRequests = reactive<Record<string, boolean>>({});
   const fetchOptions: Ref<FetchOptions> = computed(() => {
     return {
-      baseURL: "/api",
+      baseURL: "http://127.0.0.1:8083/api/",
       headers: {
-        "Content-Type": "application/json",
         authorization: "" + token.value
       }
     };
@@ -28,6 +29,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   const modules: IApiInstance = {
     account: new AccountModule(fetchOptions, pendingRequests),
     users: new UsersModule(fetchOptions, pendingRequests),
+    submission: new SubmissionModule(fetchOptions, pendingRequests),
     usePendingRequests: () => ({
       pendingRequests
     })

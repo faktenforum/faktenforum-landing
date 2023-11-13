@@ -109,10 +109,6 @@ const {
 } = await $api.account.useGetSessions();
 
 userData.email = accountData.value?.email || "";
-onMounted(() => {
-  // If you want to force a refresh or re-fetch data:
-  refreshSessions();
-});
 
 async function updatePassword(requestId: string) {
   try {
