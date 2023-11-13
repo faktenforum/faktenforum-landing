@@ -1,6 +1,7 @@
-ARG NODE_VERSION=18
+ARG NODE_VERSION=20.9
 
-FROM node:${NODE_VERSION}-slim as base
+# Build stage
+FROM node:${NODE_VERSION}-alpine as base
 
 ARG PORT=3000
 
@@ -22,7 +23,7 @@ RUN npm prune
 # Run
 FROM base
 
-ENV PORT=80
+ENV PORT=$PORT
 
 COPY --from=build /src/.output /src/.output
 # Optional, only needed if you rely on unbundled dependencies

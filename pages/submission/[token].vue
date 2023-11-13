@@ -26,7 +26,7 @@
             rows="3"
             :label="$t('submitPage.claim.label.description')"
           ></v-textarea>
-          <claim-source-list v-model="(claim as any)" />
+          <claim-source-list v-model="claim" />
 
           <v-tabs v-model="tab" color="primary">
             <v-tab value="file">{{ $t("submitPage.tab.file") }}</v-tab>
@@ -60,6 +60,7 @@
 <script lang="ts" setup>
 import { nanoid } from "nanoid";
 import type { Claim } from "@/components/claim/types";
+
 definePageMeta({
   middleware: [],
   layout: "default",
