@@ -34,6 +34,7 @@
   </div>
 </template>
 <script lang="ts" setup>
+import { redirect } from "next/dist/server/api-utils";
 import { useNotificationStore } from "~/stores/notifications";
 definePageMeta({
   middleware: "auth",
@@ -51,13 +52,10 @@ async function login() {
   try {
     const result = await signIn(
       { username: username.value, password: password.value },
-      { redirect: true }
+      { redirect: false }
     );
-
-    console.log("result", data.value);
+    navigateTo("/dashboard");
   } catch (error) {
-    console.log("Error", JSON.stringify(error));
-    console.log("type", typeof error);
     addNotification({ title: "Wrong username or password", type: "error", timeout: 5000 });
   }
 }

@@ -3,6 +3,9 @@
   "private": true,
   "scripts": {
     "start": "nuxt dev",
+    "start:production": "AUTH_ORIGIN=http://localhost:8083 NEXTAUTH_URL=http://localhost:8083/api/auth NODE_ENV=production BUILD_API_BASE_URL=http://localhost:8083/api nuxt dev",
+    "build:production": "AUTH_ORIGIN=http://localhost:8083 NEXTAUTH_URL=http://localhost:8083/api/auth NODE_ENV=production BUILD_API_BASE_URL=http://localhost:8083/api nuxt build",
+    "build": "nuxt build",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
@@ -14,7 +17,7 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxtjs/i18n": "^8.0.0-rc.4",
-    "@sidebase/nuxt-auth": "^0.6.0-rc.0",
+    "@sidebase/nuxt-auth": "^0.6.1",
     "@types/markdown-it": "^13.0.5",
     "@vueuse/nuxt": "^10.5.0",
     "dayjs-nuxt": "^2.1.9",

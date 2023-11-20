@@ -13,10 +13,11 @@ interface IApiInstance {
 
 export default defineNuxtPlugin((nuxtApp) => {
   const { token } = useAuth();
+  const config = useRuntimeConfig();
   const pendingRequests = reactive<Record<string, boolean>>({});
   const fetchOptions: Ref<FetchOptions> = computed(() => {
     return {
-      baseURL: "http://127.0.0.1:8083/api/",
+      baseURL: config.public.apiBase,
       headers: {
         authorization: "" + token.value
       }

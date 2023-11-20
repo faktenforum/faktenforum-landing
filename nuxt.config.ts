@@ -1,5 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
+const API_URL = `${process.env.BUILD_API_BASE_URL || "http://127.0.0.1:8083"}/api/v1`;
+
 export default defineNuxtConfig({
   ssr: true,
   // devtools: { enabled: true },
@@ -14,6 +16,12 @@ export default defineNuxtConfig({
   experimental: {
     inlineSSRStyles: false
   },
+  runtimeConfig: {
+    public: {
+      apiBase: API_URL // can be overridden by NUXT_PUBLIC_API_BASE environment variable
+    }
+  },
+
   auth: {
     provider: {
       type: "local",
@@ -35,7 +43,7 @@ export default defineNuxtConfig({
       enableRefreshPeriodically: 600000, // 10 minutes
       enableRefreshOnWindowFocus: true
     },
-    baseURL: "http://127.0.0.1:8083/api/auth",
+    baseURL: ` ${API_URL}/auth`,
     isEnabled: true
 
     // Whether to periodically refresh the session. Change this to `true` for a refresh every seconds or set this to a number like `5000` for a refresh every 5000 milliseconds (aka: 5 seconds)    enableSessionRefreshPeriodically: false,    // Whether to refresh the session whenever a window focus event happens, i.e, when your user refocuses the window. Set this to `false` to turn this off    enableSessionRefreshOnWindowFocus: true,
@@ -119,16 +127,5 @@ export default defineNuxtConfig({
       styles: { configFile: "/assets/main.scss" } // true | 'none' | 'expose' | 'sass' | { configFile: string },
     }
   },
-  css: ["vuetify/lib/styles/main.sass"],
-
-  vite: {
-    server: {
-      proxy: {
-        "/api/": {
-          target: "http://127.0.0.0:8083/",
-          ws: true
-        }
-      }
-    }
-  }
+  css: ["vuetify/lib/styles/main.sass"]
 });
