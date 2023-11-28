@@ -175,6 +175,12 @@
         "text": "You come across a suspicious information? Submit it here or via the CORRECTIV.Faktencheck chatbot. ",
         "title": "Submit a claim"
       }
+    },
+    "whatWeDo": {
+      "intro": {
+        "text": "CORRECTIV.Faktenforum shields users and their environment against disinformation through on-hands training and counters disinformation with facts. In teams or by themselves, with the support of smart tools or professional journalists, users fact-check suspicious claims. We work according to professional standards and along the rating scale of CORRECTIV.Faktencheck. Check out our articles.",
+        "title": "What we do"
+      }
     }
   },
   "locale": "en",

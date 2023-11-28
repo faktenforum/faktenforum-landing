@@ -27,6 +27,12 @@ html {
   .text-button {
     font-family: settings.$body-font-family !important;
   }
+  .text-h5 {
+    border-bottom: 4px solid rgb(var(--v-theme-primary)) !important;
+    font-weight: 700;
+    line-height: 1;
+    padding-bottom: 6px;
+  }
 }
 a:link {
   text-decoration: none;
@@ -42,4 +48,19 @@ a:hover {
 
 a:active {
   text-decoration: none;
+}
+
+button {
+  letter-spacing: 0 !important;
+}
+
+.text-h1,
+.text-h2,
+.text-h3,
+.text-h4,
+.text-h5,
+.text-h6,
+.text-subtitle-1,
+.text-subtitle-2 {
+  color: rgb(var(--v-theme-secondary));
 }

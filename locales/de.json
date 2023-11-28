@@ -175,6 +175,12 @@
         "text": "Du ärgerst Dich über eine Falschmeldung oder fragst Dich, ob eine Behauptung stimmt? Dann reiche einen Hinweis mit der Originaldatei oder einem Link zur Originaldatei ein. Du hast schon erste Quellen gefunden, die die Behauptung widerlegen? Ergänze sie gerne in unserem Online-Formular!",
         "title": "Behauptung einreichen"
       }
+    },
+    "whatWeDo": {
+      "intro": {
+        "text": "CORRECTIV.Faktenforum...",
+        "title": "What we do"
+      }
     }
   },
   "locale": "de",
