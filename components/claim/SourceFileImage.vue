@@ -31,7 +31,7 @@ const props = defineProps<{
   width: number;
   aspectRatio: "16/9" | "4/3" | "1/1";
 }>();
-console.log(JSON.stringify(props));
+
 const isImage = computed(() => (props.mimeType ? props.mimeType.startsWith("image") : false));
 const isVideo = computed(() => (props.mimeType ? props.mimeType.startsWith("video") : false));
 const isAudio = computed(() => (props.mimeType ? props.mimeType.startsWith("audio") : false));

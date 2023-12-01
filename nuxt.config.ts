@@ -19,6 +19,12 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiBase: API_URL // can be overridden by NUXT_PUBLIC_API_BASE environment variable
+    },
+    private: {
+      chatbot: {
+        url: "",
+        secret: ""
+      }
     }
   },
 

@@ -6,6 +6,7 @@
   <slot></slot>
   <AppDialog></AppDialog>
   <AppNotifications></AppNotifications>
+  <chatbot></chatbot>
 </template>
 
 <style scoped></style>

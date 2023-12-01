@@ -12,6 +12,10 @@
       "prev": "Vorheriges Bild"
     },
     "close": "Schließen",
+    "confirmEdit": {
+      "cancel": "Abbrechen",
+      "ok": "OK"
+    },
     "dataFooter": {
       "firstPage": "Erste Seite",
       "itemsPerPageAll": "Alle",
@@ -38,12 +42,11 @@
       "sortBy": "Sortiere nach"
     },
     "datePicker": {
-      "cancel": "Abbrechen",
       "header": "Datum eingeben",
       "input": {
         "placeholder": "Datum eingeben"
       },
-      "ok": "OK",
+      "itemsSelected": "{0} selected",
       "range": {
         "header": "Daten eingeben",
         "title": "Daten auswählen"
@@ -128,6 +131,16 @@
       "title": "Benutzer des Faktenforums"
     }
   },
+  "chabot": {
+    "article": {
+      "link": "weiter lesen"
+    }
+  },
+  "chatbot": {
+    "textfield": {
+      "label": "Stelle eine Frage"
+    }
+  },
   "common": {
     "add": "hinzufügen",
     "cancel": "abbrechen",
@@ -176,11 +189,13 @@
         "title": "Behauptung einreichen"
       }
     },
-    "whatWeDo": {
-      "intro": {
-        "text": "CORRECTIV.Faktenforum...",
-        "title": "What we do"
-      }
+    "chatbot": {
+      "introduction": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor ",
+      "title": "Du hast eine Frage?"
+    },
+    "news": {
+      "introduction": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor",
+      "title": "Aktuelles"
     }
   },
   "locale": "de",

@@ -12,6 +12,10 @@
       "prev": "Previous visual"
     },
     "close": "Close",
+    "confirmEdit": {
+      "cancel": "Cancel",
+      "ok": "OK"
+    },
     "dataFooter": {
       "firstPage": "First page",
       "itemsPerPageAll": "All",
@@ -38,12 +42,11 @@
       "sortBy": "Sort by"
     },
     "datePicker": {
-      "cancel": "Cancel",
       "header": "Enter date",
       "input": {
         "placeholder": "Enter date"
       },
-      "ok": "OK",
+      "itemsSelected": "{0} selected",
       "range": {
         "header": "Enter dates",
         "title": "Select dates"
@@ -128,6 +131,16 @@
       "title": "Faktenforum users"
     }
   },
+  "chabot": {
+    "article": {
+      "link": "read more"
+    }
+  },
+  "chatbot": {
+    "textfield": {
+      "label": "Type a message"
+    }
+  },
   "common": {
     "add": "add",
     "cancel": "cancel",
@@ -176,11 +189,13 @@
         "title": "Submit a claim"
       }
     },
-    "whatWeDo": {
-      "intro": {
-        "text": "CORRECTIV.Faktenforum shields users and their environment against disinformation through on-hands training and counters disinformation with facts. In teams or by themselves, with the support of smart tools or professional journalists, users fact-check suspicious claims. We work according to professional standards and along the rating scale of CORRECTIV.Faktencheck. Check out our articles.",
-        "title": "What we do"
-      }
+    "chatbot": {
+      "introduction": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor ",
+      "title": "You have a question?"
+    },
+    "news": {
+      "introduction": " Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor ",
+      "title": "What's is new"
     }
   },
   "locale": "en",

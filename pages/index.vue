@@ -79,6 +79,7 @@
     <v-sheet tag="section" class="pa-10">
       <Calendar></Calendar>
     </v-sheet>
+    <fact-checks />
   </v-container>
 </template>
 <script lang="ts" setup>
