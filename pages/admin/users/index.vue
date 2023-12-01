@@ -56,8 +56,8 @@
   </v-container>
 </template>
 <script lang="ts" setup>
-import { VDataTableServer } from "vuetify/lib/labs/components.mjs";
-import type { VDataTable } from "vuetify/lib/labs/components.mjs";
+// import type { VDataTable } from "vuetify";
+import type { VDataTable } from "vuetify/lib/components/VDataTable/index.mjs";
 import { useDialogStore } from "@/stores/dialog";
 definePageMeta({
   middleware: ["auth", "roles"],
