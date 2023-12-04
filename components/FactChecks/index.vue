@@ -25,7 +25,15 @@
         <a :href="item.link" target="_blank">
           <v-hover v-slot="{ isHovering, props }">
             <v-card elevation="0">
-              <v-img :src="item.yoast_head_json.og_image[0].url" height="200px" cover></v-img>
+              <v-img
+                :src="
+                  item.yoast_head_json.og_image &&
+                  item.yoast_head_json.og_image[0] &&
+                  item.yoast_head_json.og_image[0].url
+                "
+                height="200px"
+                cover
+              ></v-img>
 
               <v-card-title
                 :class="{ 'on-hover': isHovering }"

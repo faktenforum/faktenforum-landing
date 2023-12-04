@@ -177,14 +177,17 @@
   "landingPage": {
     "callToActions": {
       "join": {
+        "button": "Sign Up",
         "text": "You want to be part of ? Sign up to our mailing list and we'll keep you up to date on our events and other news from the CORRECTIV.Faktenforum. We'll also send you an invitation to our Discord server where you can exchange with other and get to know our team.",
         "title": "Sign up to our Community"
       },
       "learn": {
+        "button": "Contact us",
         "text": "The CORRECTIV.Faktenforum brings together all those who want to take action against disinformation - online and on the ground. We organise networking events and offer on-site workshops with local organisations. Check out our event calendar below. For more information, please contact us at faktenforum{'@'}correctiv.org",
         "title": "Get to know us"
       },
       "submit": {
+        "button": "Submit Claim",
         "text": "Are you concerned about a possibly false statement you came across? Or are you uncertain whether a claim is true? Then submit the suspicious content with the original file or a link to the original file here. Have you already found initial sources that refute the claim? Feel free to add them!",
         "title": "Submit a suspicious claim"
       }
@@ -200,7 +203,6 @@
     "news": {
       "description": "The CORRECTIV.Faktenforum is an independent community organised by CORRECTIV. You can read the latest articles of colleagues from our fact-checking team here or on the website correctiv.org. Is a video real or manipulated? Was a quote actually said this way? Or has a statistic been taken out of context? At CORRECTIV.factcheck, 13 journalists tackle these and other questions every day. Get an impression of their work.",
       "title": "The latest articles of CORRECTIV.Faktencheck"
-
     }
   },
   "locale": "en",

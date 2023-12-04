@@ -54,17 +54,23 @@
       <v-row>
         <v-col cols="12" xs="12" sm="6" md="4" lg="4" xl="4">
           <NuxtLink to="/submission/">
-            <v-btn class="w-100" color="primary" variant="flat"> Sign Up </v-btn>
+            <v-btn class="w-100" color="primary" variant="flat">
+              {{ $t("landingPage.callToActions.join.button") }}</v-btn
+            >
           </NuxtLink>
         </v-col>
         <v-col cols="12" xs="12" sm="6" md="4" lg="4" xl="4">
           <NuxtLink to="/submission/">
-            <v-btn class="w-100" color="primary" variant="flat"> Submit Claim </v-btn>
+            <v-btn class="w-100" color="primary" variant="flat">
+              {{ $t("landingPage.callToActions.submit.button") }}
+            </v-btn>
           </NuxtLink>
         </v-col>
         <v-col cols="12" xs="12" sm="6" md="4" lg="4" xl="4">
           <NuxtLink to="/submission/">
-            <v-btn class="w-100" color="primary" variant="flat"> Contact us </v-btn>
+            <v-btn class="w-100" color="primary" variant="flat">
+              {{ $t("landingPage.callToActions.learn.button") }}
+            </v-btn>
           </NuxtLink>
         </v-col>
       </v-row>

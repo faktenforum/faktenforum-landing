@@ -177,14 +177,17 @@
   "landingPage": {
     "callToActions": {
       "join": {
+        "button": "Registriere dich",
         "text": "Du willst dabei sein? Trag Dich in den Mailverteiler ein und wir halten Dich auf dem Laufenden – zu unseren Veranstaltungen und anderen Neuigkeiten aus dem CORRECTIV.Faktenforum. Wir schicken Dir auch eine Einladung zu unserem Discord-Server.",
         "title": "Melde Dich zur Community an"
       },
       "learn": {
+        "button": "kontaktiere uns",
         "text": "Das CORRECTIV.Faktenforum bringt all diejenigen zusammen, die sich gegen Desinformation einsetzen wollen – im Netz und vor Ort. Wir organisieren Vernetzungstreffen und planen mit lokalen Organisationen auch Workshops vor Ort. Für mehr Informationen kontaktiere uns unter faktenforum{'@'}correctiv.org",
         "title": "Lern uns kennen"
       },
       "submit": {
+        "button": "Behauptung einreichen",
         "text": "Du ärgerst Dich über eine Falschmeldung oder fragst Dich, ob eine Behauptung stimmt? Dann reiche einen Hinweis mit der Originaldatei oder einem Link zur Originaldatei ein. Du hast schon erste Quellen gefunden, die die Behauptung widerlegen? Ergänze sie gerne in unserem Online-Formular!",
         "title": "Behauptung einreichen"
       }
