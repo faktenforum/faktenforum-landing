@@ -68,14 +68,14 @@ export default defineNuxtConfig({
         file: "en.json",
         name: "English",
         dir: "ltr"
-      },
-      {
-        code: "de",
-        iso: "de",
-        file: "de.json",
-        name: "Deutsch",
-        dir: "ltr"
       }
+      // {
+      //   code: "de",
+      //   iso: "de",
+      //   file: "de.json",
+      //   name: "Deutsch",
+      //   dir: "ltr"
+      // }
     ],
     lazy: true,
     strategy: "no_prefix",

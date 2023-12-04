@@ -177,25 +177,30 @@
   "landingPage": {
     "callToActions": {
       "join": {
-        "text": "Sign up to our mailing list. We'll let you know once our platform goes live. ",
-        "title": "Join Faktenforum"
+        "text": "You want to be part of ? Sign up to our mailing list and we'll keep you up to date on our events and other news from the CORRECTIV.Faktenforum. We'll also send you an invitation to our Discord server where you can exchange with other and get to know our team.",
+        "title": "Sign up to our Community"
       },
       "learn": {
-        "text": "Interested in fact-checking? Check out our video tutorials and learning materials. ",
-        "title": "Learn about fact-checking "
+        "text": "The CORRECTIV.Faktenforum brings together all those who want to take action against disinformation - online and on the ground. We organise networking events and offer on-site workshops with local organisations. Check out our event calendar below. For more information, please contact us at faktenforum{'@'}correctiv.org",
+        "title": "Get to know us"
       },
       "submit": {
-        "text": "You come across a suspicious information? Submit it here or via the CORRECTIV.Faktencheck chatbot. ",
-        "title": "Submit a claim"
+        "text": "Are you concerned about a possibly false statement you came across? Or are you uncertain whether a claim is true? Then submit the suspicious content with the original file or a link to the original file here. Have you already found initial sources that refute the claim? Feel free to add them!",
+        "title": "Submit a suspicious claim"
       }
     },
     "chatbot": {
-      "introduction": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor ",
-      "title": "You have a question?"
+      "description": "Did you come across a suspicious claim? Perhaps the team of CORRECTIV.Factcheck has already looked into the alleged misinformation. You can send a query to our database via the CORRECTIV.chatbot. The tool is not omniscient, but only answers questions that are documented in our database of more than 3,000 fact check articles from CORRECTIV.",
+      "title": "Ask the CORRECTIV.Checkbot"
+    },
+    "header": {
+      "description": "Targeted misinformation is being used to divide our society. CORRECTIV.Faktenforum is a community for everyone who wants to engage in a fact-based dialogue and wants to counter disinformation - regardless of previous journalistic experience.",
+      "title": "Fact-checking as a community"
     },
     "news": {
-      "introduction": " Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor ",
-      "title": "What's is new"
+      "description": "The CORRECTIV.Faktenforum is an independent community organised by CORRECTIV. You can read the latest articles of colleagues from our fact-checking team here or on the website correctiv.org. Is a video real or manipulated? Was a quote actually said this way? Or has a statistic been taken out of context? At CORRECTIV.factcheck, 13 journalists tackle these and other questions every day. Get an impression of their work.",
+      "title": "The latest articles of CORRECTIV.Faktencheck"
+
     }
   },
   "locale": "en",

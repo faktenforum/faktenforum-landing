@@ -177,11 +177,11 @@
   "landingPage": {
     "callToActions": {
       "join": {
-        "text": "Du findest CORRECTIV.Faktenforum spannend? Melde Dich an und wir halten Dich zum Projekt und unseren Veranstaltungen auf dem Laufenden.",
-        "title": "Anmeldung zur Community"
+        "text": "Du willst dabei sein? Trag Dich in den Mailverteiler ein und wir halten Dich auf dem Laufenden – zu unseren Veranstaltungen und anderen Neuigkeiten aus dem CORRECTIV.Faktenforum. Wir schicken Dir auch eine Einladung zu unserem Discord-Server.",
+        "title": "Melde Dich zur Community an"
       },
       "learn": {
-        "text": "Das Team von CORRECTIV.Faktenforum bietet regelmäßig Workshops und andere Events an - online und vielleicht auch mal in Deiner Nähe. Wir freuen uns, Dich bei einer Veranstaltung kennenzulernen. ",
+        "text": "Das CORRECTIV.Faktenforum bringt all diejenigen zusammen, die sich gegen Desinformation einsetzen wollen – im Netz und vor Ort. Wir organisieren Vernetzungstreffen und planen mit lokalen Organisationen auch Workshops vor Ort. Für mehr Informationen kontaktiere uns unter faktenforum{'@'}correctiv.org",
         "title": "Lern uns kennen"
       },
       "submit": {
@@ -190,12 +190,16 @@
       }
     },
     "chatbot": {
-      "introduction": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor ",
-      "title": "Du hast eine Frage?"
+      "description": "Dir ist eine verdächtige Behauptung aufgefallen? Vielleicht hat das Team von CORRECTIV.Faktencheck sie schon überprüft. Über den CORRECTIV.Chatbot kannst du eine Abfrage an unsere Datenbank senden. Das ist Tool ist nicht allwissend, sondern beantwortet nur Fragen, die in unserer Datenbank aus mehr als 3.000 Faktencheck-Artikeln von CORRECTIV belegt sind.",
+      "title": "Frag den CORRECTIV.Checkbot"
+    },
+    "header": {
+      "description": "Gezielte Falschnachrichten werden genutzt, um unsere Gesellschaft zu spalten. CORRECTIV.Faktenforum ist eine Community für alle, die sich für faktenbasierten Austausch einsetzen wollen – unabhängig von journalistischer Vorerfahrung und ihrem Wohnort.",
+      "title": "Als Community Fakten checken"
     },
     "news": {
-      "introduction": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor",
-      "title": "Aktuelles"
+      "description": "Das CORRECTIV.Faktenforum ist eine eigenständige Community organisiert von CORRECTIV. Die neuesten Artikel der Kollegen und Kolleginnen aus unserer Faktencheck-Redaktion könnt ihr hier lesen. Ist ein Video echt oder manipuliert? Wurde ein Zitat tatsächlich so gesagt? Oder ist eine Statistik aus dem Kontext gerissen? Bei CORRECTIV.Faktencheck befassen sich 13 Journalisten mit diesen Fragen. Hier bekommt ihr einen Eindruck von ihrer Arbeit.",
+      "title": "Aktuelle Artikel von CORRECTIV.Faktencheck"
     }
   },
   "locale": "de",

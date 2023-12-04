@@ -2,11 +2,13 @@
   <v-sheet class="pa-10 my-16">
     <v-row>
       <v-col>
-        <h3 class="text-body-1 font-weight-black text-uppercase text-secondary-lighten-3">
+        <h4 class="text-h4 mb-2">
+          <!-- <h3 class="text-body-1 font-weight-black text-uppercase text-secondary-lighten-3"> -->
           {{ $t("landingPage.news.title") }}
-        </h3>
+          <!-- </h3> -->
+        </h4>
         <p class="py-4">
-          {{ $t("landingPage.news.introduction") }}
+          {{ $t("landingPage.news.description") }}
         </p>
       </v-col>
     </v-row>
@@ -43,11 +45,13 @@
 
     <v-row>
       <v-col>
-        <h3 class="text-body-1 font-weight-black text-uppercase text-secondary-lighten-3">
+        <!-- <h3 class="text-body-1 font-weight-black text-uppercase text-secondary-lighten-3"> -->
+        <h4 class="text-h4 mb-2">
           {{ $t("landingPage.chatbot.title") }}
-        </h3>
+        </h4>
+        <!-- </h3> -->
         <p class="py-4">
-          {{ $t("landingPage.chatbot.introduction") }}
+          {{ $t("landingPage.chatbot.description") }}
         </p>
       </v-col>
     </v-row>

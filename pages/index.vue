@@ -2,29 +2,16 @@
   <v-container class="my-2" fluid>
     <div class="h-spacer"></div>
     <v-sheet tag="header" color="primary" height="500">
-      <v-img src="/images/hero-bg.jpg" cover class="pa-10">
+      <v-img src="/images/hero-bg.jpg" cover class="pa-6">
         <v-row>
           <v-col>
-            <h1 class="text-h2 font-weight-black">Faktenforum</h1>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <h2 class="text-h3">Take action against missinformation</h2>
+            <h2 class="text-h3">{{ $t("landingPage.header.title") }}</h2>
           </v-col>
         </v-row>
         <v-row>
           <v-col cols="12" xs="12" sm="10" md="7" lg="6">
-            <div class="text-subtitle-1">
-              On CORRECTIV.Faktenforum people take action to counter disinformation and train their
-              media and information literacy skills. Journalistic experience is not required.
-            </div>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <div class="text-subtitle-1 text-weight-bold">
-              Every contribution counts - which is yours?
+            <div class="text-h6">
+              {{ $t("landingPage.header.description") }}
             </div>
           </v-col>
         </v-row>
@@ -38,31 +25,20 @@
           <span>
             {{ $t("landingPage.callToActions.join.text") }}
           </span>
-          <v-text-field
-            density="compact"
-            type="email"
-            label="Email address"
-            dense
-            variant="outlined"
-            class="mt-4"
-          />
-          <v-btn class="w-100" color="primary" variant="flat"> Sign Up </v-btn>
         </v-col>
         <v-col cols="12" xs="12" sm="6" md="4" lg="4" xl="4">
           <h4 class="text-h4 mb-2">{{ $t("landingPage.callToActions.submit.title") }}</h4>
           <span>
             {{ $t("landingPage.callToActions.submit.text") }}
           </span>
-          <NuxtLink to="/submission/">
-            <v-btn class="w-100 mt-4" color="primary" variant="flat"> Submit Claim </v-btn>
-          </NuxtLink>
         </v-col>
         <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
           <h4 class="text-h4 mb-2">{{ $t("landingPage.callToActions.learn.title") }}</h4>
           <span>
             {{ $t("landingPage.callToActions.learn.text") }}
           </span>
-          <v-list :items="learnMoreItems" item-props lines="two">
+
+          <!-- <v-list :items="learnMoreItems" item-props lines="two">
             <template v-slot:subtitle="{ subtitle }">
               <div v-html="subtitle"></div>
             </template>
@@ -71,7 +47,25 @@
                 <v-img :width="70" aspect-ratio="4/3" cover :src="item.prependAvatar" />
               </v-container>
             </template>
-          </v-list>
+          </v-list> -->
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col cols="12" xs="12" sm="6" md="4" lg="4" xl="4">
+          <NuxtLink to="/submission/">
+            <v-btn class="w-100" color="primary" variant="flat"> Sign Up </v-btn>
+          </NuxtLink>
+        </v-col>
+        <v-col cols="12" xs="12" sm="6" md="4" lg="4" xl="4">
+          <NuxtLink to="/submission/">
+            <v-btn class="w-100" color="primary" variant="flat"> Submit Claim </v-btn>
+          </NuxtLink>
+        </v-col>
+        <v-col cols="12" xs="12" sm="6" md="4" lg="4" xl="4">
+          <NuxtLink to="/submission/">
+            <v-btn class="w-100" color="primary" variant="flat"> Contact us </v-btn>
+          </NuxtLink>
         </v-col>
       </v-row>
     </v-sheet>
