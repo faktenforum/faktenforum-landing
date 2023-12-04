@@ -109,11 +109,11 @@ function handleFiles(files: FileList | File[] | null) {
         files: [
           {
             id: nanoid(10),
-            file: files[0],
-            url: URL.createObjectURL(files[0]),
-            name: files[0].name,
-            size: files[0].size,
-            mimeType: files[0].type
+            file: file,
+            url: URL.createObjectURL(file),
+            name: file.name,
+            size: file.size,
+            mimeType: file.type
           }
         ],
         originalUrl: ""
