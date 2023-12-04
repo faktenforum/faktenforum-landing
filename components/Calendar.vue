@@ -3,7 +3,7 @@
     <v-col>
       <h4 class="text-h4 mb-2">
         <!-- <h3 class="text-body-1 font-weight-black text-uppercase text-secondary-lighten-3"> -->
-        Next events
+        {{ $t("calendar.title") }}
         <!-- </h3> -->
       </h4>
     </v-col>

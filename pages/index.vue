@@ -77,37 +77,14 @@
     </v-sheet>
     <div class="h-spacer"></div>
     <v-sheet tag="section" class="pa-10">
-      <Calendar></Calendar>
+      <calendar></calendar>
     </v-sheet>
     <fact-checks />
     <div class="h-spacer"></div>
     <div class="h-spacer"></div>
   </v-container>
 </template>
-<script lang="ts" setup>
-import Calendar from "~/components/Calendar.vue";
-
-const learnMoreItems = ref([
-  {
-    prependAvatar: "https://dummyimage.com/4:3x60/",
-    title: "10 tips",
-    subtitle: `<span class="font-italic">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`
-  },
-  { type: "divider", inset: false },
-  {
-    prependAvatar: "https://dummyimage.com/4:3x60/",
-    title: "Infoflyer",
-    subtitle: `<span class="font-italic">to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.`
-  },
-  { type: "divider", inset: false },
-  {
-    prependAvatar: "https://dummyimage.com/4:3x60/",
-    title: "How to",
-    subtitle:
-      '<span class="font-italic">Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?'
-  }
-]);
-</script>
+<script lang="ts" setup></script>
 <style scoped>
 .v-container {
   max-width: 1066px;

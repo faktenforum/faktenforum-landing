@@ -131,6 +131,9 @@
       "title": "Faktenforum users"
     }
   },
+  "calendar": {
+    "title": "Next events"
+  },
   "chabot": {
     "article": {
       "link": "read more"
