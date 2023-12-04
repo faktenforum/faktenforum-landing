@@ -74,6 +74,8 @@
       <Calendar></Calendar>
     </v-sheet>
     <fact-checks />
+    <div class="h-spacer"></div>
+    <div class="h-spacer"></div>
   </v-container>
 </template>
 <script lang="ts" setup>
