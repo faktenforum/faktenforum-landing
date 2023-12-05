@@ -1,11 +1,11 @@
 <script lang="ts" setup></script>
 
 <template>
-  <NavigationBar></NavigationBar>
+  <app-navigation-bar></app-navigation-bar>
 
   <slot></slot>
-  <AppDialog></AppDialog>
-  <AppNotifications></AppNotifications>
+  <app-dialog></app-dialog>
+  <app-notifications></app-notifications>
   <chatbot></chatbot>
 </template>
 

@@ -30,18 +30,33 @@
           <span class="text-body-1">
             {{ $t("landingPage.callToActions.join.text") }}
           </span>
+          <NuxtLink to="/submission/" class="mt-auto">
+            <v-btn class="w-100 text-secondary mt-6" color="primary" variant="flat" size="large">
+              {{ $t("landingPage.callToActions.join.button") }}</v-btn
+            >
+          </NuxtLink>
         </v-col>
-        <v-col cols="12" xs="12" sm="6" md="4" lg="4" xl="4">
+        <v-col class="d-flex flex-column" cols="12" xs="12" sm="6" md="4" lg="4" xl="4">
           <h4 class="text-h5 mb-2 ff-title">{{ $t("landingPage.callToActions.submit.title") }}</h4>
           <span class="text-body-1">
             {{ $t("landingPage.callToActions.submit.text") }}
           </span>
+          <NuxtLink to="/submission/" class="mt-auto">
+            <v-btn class="w-100 text-secondary mt-6" color="primary" variant="flat" size="large">
+              {{ $t("landingPage.callToActions.submit.button") }}
+            </v-btn>
+          </NuxtLink>
         </v-col>
         <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
           <h4 class="text-h5 mb-2 ff-title">{{ $t("landingPage.callToActions.learn.title") }}</h4>
           <span class="text-body-1">
             {{ $t("landingPage.callToActions.learn.text") }}
           </span>
+          <div class="mt-auto">
+            <v-btn class="w-100 text-secondary mt-8" color="primary" variant="flat" size="large">
+              {{ $t("landingPage.callToActions.learn.button") }}
+            </v-btn>
+          </div>
 
           <!-- <v-list :items="learnMoreItems" item-props lines="two">
             <template v-slot:subtitle="{ subtitle }">
@@ -53,30 +68,6 @@
               </v-container>
             </template>
           </v-list> -->
-        </v-col>
-      </v-row>
-
-      <v-row>
-        <v-col cols="12" xs="12" sm="6" md="4" lg="4" xl="4">
-          <NuxtLink to="/submission/">
-            <v-btn class="w-100 text-secondary" color="primary" variant="flat" size="large">
-              {{ $t("landingPage.callToActions.join.button") }}</v-btn
-            >
-          </NuxtLink>
-        </v-col>
-        <v-col cols="12" xs="12" sm="6" md="4" lg="4" xl="4">
-          <NuxtLink to="/submission/">
-            <v-btn class="w-100 text-secondary" color="primary" variant="flat" size="large">
-              {{ $t("landingPage.callToActions.submit.button") }}
-            </v-btn>
-          </NuxtLink>
-        </v-col>
-        <v-col cols="12" xs="12" sm="6" md="4" lg="4" xl="4">
-          <NuxtLink to="/submission/">
-            <v-btn class="w-100 text-secondary" color="primary" variant="flat" size="large">
-              {{ $t("landingPage.callToActions.learn.button") }}
-            </v-btn>
-          </NuxtLink>
         </v-col>
       </v-row>
     </v-sheet>

@@ -10,7 +10,7 @@
 </template>
 <style scoped>
 .v-main {
-  background: url("images/background.jpg") no-repeat center top fixed !important;
+  background: url("/images/background.jpg") no-repeat center top fixed !important;
   background-size: contain;
 }
 </style>

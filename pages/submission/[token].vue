@@ -122,7 +122,7 @@ async function submit(requestId: string) {
   try {
     console.log("Update payload: ", payload);
     await $api.submission.updateSubmit(params.token as string, payload, files, requestId);
-    await navigateTo(`/submission`);
+    await navigateTo(`/`);
   } catch (error) {
     // noop - handled by api error handler
   }

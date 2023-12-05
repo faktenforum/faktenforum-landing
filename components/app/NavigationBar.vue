@@ -7,14 +7,14 @@
     height="78"
     tag="nav"
   >
-    <div class="d-flex align-center h-100 py-2 ml-12 ml-sm-4 mr-4">
+    <NuxtLink class="d-flex align-center h-100 py-2 ml-12 ml-sm-4 mr-4" to="/">
       <v-img
         src="/images/logo-horizontal-yellow.png"
         height="50"
         width="174"
         alt="Faktenforum Logo"
       />
-    </div>
+    </NuxtLink>
 
     <template v-slot:append v-if="status !== 'authenticated'">
       <v-btn color="primary" class="px-4 mr-2" variant="text">What is Faktenforum</v-btn>

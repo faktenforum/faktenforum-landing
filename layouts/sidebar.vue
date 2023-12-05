@@ -1,9 +1,10 @@
 <template>
-  <NavigationBar></NavigationBar>
-  <NavigationDrawer></NavigationDrawer>
+  <app-navigation-bar></app-navigation-bar>
+
+  <app-navigation-drawer></app-navigation-drawer>
   <slot></slot>
-  <AppDialog></AppDialog>
-  <AppNotifications></AppNotifications>
+  <app-dialog></app-dialog>
+  <app-notifications></app-notifications>
 </template>
 <script lang="ts" setup></script>
 
