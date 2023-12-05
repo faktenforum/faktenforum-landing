@@ -1,8 +1,8 @@
 <template>
-  <v-sheet class="pa-10 my-16">
+  <v-sheet class="pa-8 pa-sm-12 my-16">
     <v-row>
       <v-col>
-        <h4 class="text-h4 mb-2 font-weight-black text-uppercase text-secondary-lighten-5">
+        <h4 class="text-h4 mb-2">
           {{ $t("landingPage.news.title") }}
         </h4>
         <p class="py-4 text-body-1">
@@ -36,11 +36,11 @@
               <v-card-title
                 :class="{ 'on-hover': isHovering }"
                 v-bind="props"
-                class="px-0 py-4 text-h6 font-weight-bold"
+                class="px-0 pt-4 text-h6 font-weight-bold"
               >
                 {{ item.yoast_head_json.title }}
               </v-card-title>
-              <v-card-text class="px-0 py-4 text-body-1">
+              <v-card-text class="px-0 py-2 text-body-1">
                 <div v-html="item.yoast_head_json.description"></div>
               </v-card-text>
             </v-card>
@@ -49,7 +49,7 @@
       </v-col>
     </v-row>
 
-    <v-row>
+    <v-row class="mt-8">
       <v-col>
         <!-- <h3 class="text-body-1 font-weight-black text-uppercase text-secondary-lighten-3"> -->
         <h4 class="text-h4 mb-2">

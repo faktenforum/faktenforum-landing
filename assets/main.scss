@@ -1,5 +1,5 @@
 @use "vuetify/settings" with (
-  // $font-size-root: 20px,
+  $font-size-root: 17px,
   $heading-font-family: "Barlow",
   $body-font-family: "Barlow",
   $button-text-transform: "none"
@@ -74,10 +74,9 @@ button {
   font-weight: 700;
   line-height: 1.25;
   padding-bottom: 4px;
-  display: inline-block;
 }
 
 .border-primary,
 .v-btn--variant-outlined.border-primary {
-  border-color: rgb(var(--v-theme-secondary)) !important;
+  /*border-color: rgb(var(--v-theme-secondary)) !important;*/
 }

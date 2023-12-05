@@ -1,7 +1,7 @@
 <template>
   <!-- Hidden file input -->
   <input type="file" ref="fileInput" style="display: none;" @change="handleFileDialogChange" />
-  <v-card class="dashed-primary-outline d-flex" variant="outlined">
+  <v-card class="dashed-primary-outline rounded-sm d-flex px-8 py-6" variant="outlined">
     <common-file-drop-zone
       class="d-flex flex-column flex-grow-1"
       @files-dropped="handleFiles"
@@ -25,7 +25,7 @@
             <template v-slot:prepend>
               <v-icon color="primary" size="48"></v-icon>
             </template>
-            <span class="text-h6 font-weight-bold text-color-primary">
+            <span class="text-h6 font-weight-bold">
               {{ $t("submitPage.dropzone.file.select") }}
             </span>
           </v-btn>

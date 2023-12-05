@@ -1,6 +1,6 @@
 <template>
   <v-app-bar
-    color="surface"
+    color="secondary"
     elevation="0"
     density="compact"
     scroll-behavior="hide elevate"
@@ -17,9 +17,9 @@
     </div>
 
     <template v-slot:append v-if="status !== 'authenticated'">
-      <v-btn color="secondary" class="px-4 mr-2" variant="text">What is Faktenforum</v-btn>
-      <v-btn color="secondary" class="px-4 mr-2" variant="text">News</v-btn>
-      <v-btn color="secondary" class="px-4 mr-2" variant="text">FAQ</v-btn>
+      <v-btn color="primary" class="px-4 mr-2" variant="text">What is Faktenforum</v-btn>
+      <v-btn color="primary" class="px-4 mr-2" variant="text">News</v-btn>
+      <v-btn color="primary" class="px-4 mr-2" variant="text">FAQ</v-btn>
       <NuxtLink to="/login">
         <v-btn color="primary" class="px-8 mr-12 mr-sm-4 text-secondary" variant="flat">Join</v-btn>
       </NuxtLink>

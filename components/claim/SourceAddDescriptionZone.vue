@@ -1,9 +1,9 @@
 <template>
   <v-card
-    class="background-color-primary d-flex flex-column justify-center px-8 py-4"
+    class="dashed-primary-outline rounded-sm d-flex flex-column justify-center px-8 py-6"
     variant="outlined"
   >
-    <div class="pb-2">
+    <div class="pb-4">
       {{ $t("submitPage.dropzone.claim.title") }}
     </div>
 

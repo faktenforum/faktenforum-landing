@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col>
-      <h4 class="text-h4 mb-2 font-weight-black text-uppercase text-secondary-lighten-5">
+      <h4 class="text-h4 mb-2">
         {{ $t("calendar.title") }}
       </h4>
     </v-col>
