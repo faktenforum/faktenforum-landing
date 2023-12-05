@@ -2,33 +2,32 @@
   <v-app-bar
     color="surface"
     elevation="0"
-    class="py-4 px-2 mb-4"
     density="compact"
     scroll-behavior="hide elevate"
-    height="60"
+    height="78"
     tag="nav"
   >
-    <div class="d-flex align-center h-100 pl-4">
+    <div class="d-flex align-center h-100 py-2 ml-12 ml-sm-4 mr-4">
       <v-img
         src="/images/logo-horizontal-yellow.png"
-        height="60"
-        width="209"
+        height="50"
+        width="174"
         alt="Faktenforum Logo"
       />
     </div>
 
     <template v-slot:append v-if="status !== 'authenticated'">
-      <v-btn color="secondary" class="px-6" variant="text">What is Faktenforum</v-btn>
-      <v-btn color="secondary" class="px-6" variant="text">News</v-btn>
-      <v-btn color="secondary" class="pe-10 mr-6" variant="text">FAQ</v-btn>
+      <v-btn color="secondary" class="px-4 mr-2" variant="text">What is Faktenforum</v-btn>
+      <v-btn color="secondary" class="px-4 mr-2" variant="text">News</v-btn>
+      <v-btn color="secondary" class="px-4 mr-2" variant="text">FAQ</v-btn>
       <NuxtLink to="/login">
-        <v-btn color="primary" class="px-10 text-secondary" variant="flat">Join</v-btn>
+        <v-btn color="primary" class="px-8 mr-12 mr-sm-4 text-secondary" variant="flat">Join</v-btn>
       </NuxtLink>
     </template>
     <template v-slot:append v-if="status === 'authenticated'">
       <v-btn
         color="white"
-        class="px-10 color-primary--text"
+        class="px-8 mr-12 mr-sm-4 color-primary--text"
         variant="flat"
         @click="signOut({ callbackUrl: '/login', redirect: true })"
         >Logout</v-btn

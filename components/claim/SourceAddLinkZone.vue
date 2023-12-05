@@ -2,14 +2,14 @@
   <v-card class="dashed-primary-outline d-flex flex-column justify-center" variant="outlined">
     <div class="d-flex justify-center align-center">
       <v-icon color="primary" size="48">mdi-link</v-icon>
-      <span class="text-subtitle text-color-primary">
+      <span class="text-subtitle text-color-secondary">
         {{ $t("submitPage.dropzone.link.title") }}
       </span>
     </div>
     <div class="d-flex justify-center">
       <v-text-field
         v-model="value"
-        style="max-width: 361px"
+        style="max-width: 361px;"
         class=""
         variant="outlined"
         density="compact"

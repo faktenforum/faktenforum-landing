@@ -27,11 +27,11 @@ html {
   .text-button {
     font-family: settings.$body-font-family !important;
   }
-  .text-h5 {
-    border-bottom: 4px solid rgb(var(--v-theme-primary)) !important;
-    font-weight: 700;
-    line-height: 1;
-    padding-bottom: 6px;
+  .text-subtitle-1,
+  .text-subtitle-2,
+  .text-body-1,
+  .text-body-2 {
+    line-height: 1.25;
   }
 }
 a {
@@ -67,4 +67,17 @@ button {
 .text-subtitle-1,
 .text-subtitle-2 {
   color: rgb(var(--v-theme-secondary));
+}
+
+.ff-title {
+  border-bottom: 4px solid rgb(var(--v-theme-primary));
+  font-weight: 700;
+  line-height: 1.25;
+  padding-bottom: 4px;
+  display: inline-block;
+}
+
+.border-primary,
+.v-btn--variant-outlined.border-primary {
+  border-color: rgb(var(--v-theme-secondary)) !important;
 }

@@ -2,12 +2,10 @@
   <v-sheet class="pa-10 my-16">
     <v-row>
       <v-col>
-        <h4 class="text-h4 mb-2">
-          <!-- <h3 class="text-body-1 font-weight-black text-uppercase text-secondary-lighten-3"> -->
+        <h4 class="text-h4 mb-2 font-weight-black text-uppercase text-secondary-lighten-5">
           {{ $t("landingPage.news.title") }}
-          <!-- </h3> -->
         </h4>
-        <p class="py-4">
+        <p class="py-4 text-body-1">
           {{ $t("landingPage.news.description") }}
         </p>
       </v-col>
@@ -42,7 +40,7 @@
               >
                 {{ item.yoast_head_json.title }}
               </v-card-title>
-              <v-card-text class="px-0 py-4">
+              <v-card-text class="px-0 py-4 text-body-1">
                 <div v-html="item.yoast_head_json.description"></div>
               </v-card-text>
             </v-card>

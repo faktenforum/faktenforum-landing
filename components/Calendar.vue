@@ -1,10 +1,8 @@
 <template>
   <v-row>
     <v-col>
-      <h4 class="text-h4 mb-2">
-        <!-- <h3 class="text-body-1 font-weight-black text-uppercase text-secondary-lighten-3"> -->
+      <h4 class="text-h4 mb-2 font-weight-black text-uppercase text-secondary-lighten-5">
         {{ $t("calendar.title") }}
-        <!-- </h3> -->
       </h4>
     </v-col>
   </v-row>
@@ -24,7 +22,7 @@
             <a :href="item.url" class="text-secondary text-wrap">{{ item.title }}</a>
           </v-card-title></v-hover
         >
-        <v-card-text class="px-0 py-4">
+        <v-card-text class="text-body-1 px-0 py-4">
           {{ item.description }}
         </v-card-text>
         <v-card-actions v-if="item.link_text" class="pa-0">
@@ -36,7 +34,10 @@
 </template>
 <script setup>
 const events = ref([]);
-const { data, refresh } = await useFetch(
+const {
+  data,
+  refresh
+} = await useFetch(
   "https://docs.google.com/spreadsheets/d/1LMXBxJ9tE4fwL3Fj9yJ5xf2g6u7lr0h7A0HDVpP7g3A/gviz/tq",
   { server: false }
 ).catch((error) => console.log(error));

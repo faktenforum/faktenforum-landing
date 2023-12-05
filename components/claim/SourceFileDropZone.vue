@@ -1,6 +1,6 @@
 <template>
   <!-- Hidden file input -->
-  <input type="file" ref="fileInput" style="display: none" @change="handleFileDialogChange" />
+  <input type="file" ref="fileInput" style="display: none;" @change="handleFileDialogChange" />
   <v-card class="dashed-primary-outline d-flex" variant="outlined">
     <common-file-drop-zone
       class="d-flex flex-column flex-grow-1"
@@ -11,7 +11,7 @@
         v-if="!(singleFile && value.resources.length > 0)"
         class="flex-grow-1 d-flex flex-column justify-center"
         :style="{
-          'background-color': dropZoneActive ? 'rgb(var(--v-theme-primary-darken-3' : 'transparent'
+          'background-color': dropZoneActive ? 'rgb(var(--v-theme-primary-lighten-3' : 'transparent'
         }"
       >
         <div class="d-flex justify-center">
@@ -25,10 +25,12 @@
             <template v-slot:prepend>
               <v-icon color="primary" size="48"></v-icon>
             </template>
-            {{ $t("submitPage.dropzone.file.select") }}
+            <span class="text-h6 font-weight-bold text-color-primary">
+              {{ $t("submitPage.dropzone.file.select") }}
+            </span>
           </v-btn>
         </div>
-        <div class="d-flex justify-center pt-2 text-color-primary">
+        <div class="d-flex justify-center pt-2 text-color-secondary">
           {{ $t("submitPage.dropzone.file.drop") }}
         </div>
       </div>
@@ -50,7 +52,14 @@
             </template>
 
             <template v-slot:append>
-              <v-btn color="background" @click="clearFile()" size="small" icon="mdi-close"></v-btn>
+              <v-btn
+                color="secondary-lighten-3"
+                @click="clearFile()"
+                size="small"
+                icon="mdi-close"
+                variant="flat"
+                class="ml-2"
+              ></v-btn>
             </template>
           </v-list-item>
         </v-list>

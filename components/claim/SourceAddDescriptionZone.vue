@@ -9,8 +9,8 @@
 
     <v-textarea
       v-model="value"
-      class="flex-grow-1"
-      variant="solo"
+      class="flex-grow-1 elevation-0"
+      variant="outlined"
       density="compact"
       :label="$t('submitPage.dropzone.claim.label')"
     ></v-textarea>

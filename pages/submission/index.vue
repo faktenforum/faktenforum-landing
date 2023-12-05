@@ -1,13 +1,22 @@
 <template>
-  <v-container class="pa-0 my-0 fluid d-flex flex-column">
-    <v-sheet class="px-10 pt-16 h-100 flex-grow-1">
-      <h1 class="text-h5 text-color-primary pb-4">{{ $t("submitPage.title") }}</h1>
-      <div class="text-caption pb-2">{{ $t("submitPage.text") }}</div>
+  <v-container class="pa-0 my-4 fluid d-flex flex-column">
+    <div class="h-spacer"></div>
+    <v-sheet class="pa-12 h-100 flex-grow-1">
+      <h1 class="text-h4 mb-4">
+        <span class="ff-title">{{ $t("submitPage.title") }}</span>
+      </h1>
+      <div class="text-body pb-2 mb-4">{{ $t("submitPage.text") }}</div>
 
-      <v-tabs v-model="tab" color="primary">
-        <v-tab value="file">{{ $t("submitPage.tab.file") }}</v-tab>
-        <v-tab value="link">{{ $t("submitPage.tab.link") }}</v-tab>
-        <v-tab value="description">{{ $t("submitPage.tab.claim") }}</v-tab>
+      <v-tabs v-model="tab" color="primary" density="compact">
+        <v-tab value="file" class="text-h6 font-weight-bold pa-0 mr-4">{{
+          $t("submitPage.tab.file")
+        }}</v-tab>
+        <v-tab value="link" class="text-h6 font-weight-bold pa-0 mr-4">{{
+          $t("submitPage.tab.link")
+        }}</v-tab>
+        <v-tab value="description" class="text-h6 font-weight-bold pa-0 mr-4">{{
+          $t("submitPage.tab.claim")
+        }}</v-tab>
       </v-tabs>
       <v-window v-model="tab" class="py-6">
         <v-window-item value="file">
@@ -30,7 +39,7 @@
           :loading="pendingRequests[`submit.claim`]"
           @click="submit('submit.claim')"
         >
-          {{ $t("common.submit") }}
+          <span class="text-color-secondary font-weight-bold">{{ $t("common.submit") }}</span>
         </v-btn>
       </div>
     </v-sheet>
@@ -125,15 +134,26 @@ async function submit(requestId: string) {
   max-width: 800px;
   min-height: 600px;
 }
+.v-container > :nth-child(1).h-spacer {
+  height: 10px;
+}
 .v-card {
   min-height: 222px;
 }
 .unfilled-button {
   max-width: 361px;
   width: 100%;
+  color: rgb(var(--v-theme-secondary));
 }
 .filled-button {
   max-width: 460px;
   width: 100%;
+}
+.v-btn__content {
+  color: rgb(var(--v-theme-secondary));
+}
+.v-tab__slider,
+.v-btn--variant-text .v-btn__overlay {
+  background: rgb(var(--v-theme-primary)) !important;
 }
 </style>
