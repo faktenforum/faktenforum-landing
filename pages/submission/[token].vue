@@ -2,14 +2,16 @@
   <v-container class="pa-0 my-0 fluid d-flex flex-column" fluid>
     <v-sheet class="px-10 pt-16 h-100 flex-grow-1">
       <v-form fast-fail v-if="data">
-        <h1 class="text-h5 text-color-primary pb-4">{{ $t("submitPage.source.title") }}</h1>
-        <div class="text-caption pb-2">{{ $t("submitPage.source.subtitle") }}</div>
-        <div class="pa-6 fluid d-flex flex-column background-color-primary solid-primary-outline">
+        <h1 class="text-h4 mb-4 ff-title">{{ $t("submitPage.source.title") }}</h1>
+        <div class="text-body-1 pb-2 mb-4">{{ $t("submitPage.source.subtitle") }}</div>
+        <div
+          class="px-8 py-6 rounded-sm fluid d-flex flex-column background-color-primary solid-primary-outline text-secondary-darken-3"
+        >
           <div>{{ $t("submitPage.acknowledgement") }}</div>
-          <div class="pb-6">{{ $t("submitPage.request") }}</div>
-          <div class="pa-1">{{ $t("submitPage.info.title") }}</div>
+          <div class="text-h6 pb-6">{{ $t("submitPage.request") }}</div>
+          <div class="text-h6 pa-1">{{ $t("submitPage.info.title") }}</div>
           <v-text-field
-            style="max-width: 361px"
+            style="max-width: 361px;"
             class=""
             v-model="claim.title"
             variant="solo"
@@ -28,9 +30,13 @@
           ></v-textarea>
           <claim-source-list v-model="claim" />
 
-          <v-tabs v-model="tab" color="primary">
-            <v-tab value="file">{{ $t("submitPage.tab.file") }}</v-tab>
-            <v-tab value="link">{{ $t("submitPage.tab.link") }}</v-tab>
+          <v-tabs v-model="tab" color="secondary" density="compact">
+            <v-tab value="file" class="text-h6 font-weight-bold pa-0 mr-4">{{
+              $t("submitPage.tab.file")
+            }}</v-tab>
+            <v-tab value="link" class="text-h6 font-weight-bold pa-0 mr-4">{{
+              $t("submitPage.tab.link")
+            }}</v-tab>
           </v-tabs>
           <v-window v-model="tab" class="py-6">
             <v-window-item value="file">
@@ -54,7 +60,7 @@
         </div>
       </v-form>
     </v-sheet>
-    <div style="height: 120px"></div>
+    <div style="height: 120px;"></div>
   </v-container>
 </template>
 <script lang="ts" setup>

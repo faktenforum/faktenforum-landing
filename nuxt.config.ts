@@ -103,11 +103,11 @@ export default defineNuxtConfig({
             colors: {
               background: "#bdb7b2",
               surface: "#FFFFFF",
-              "surface-primary": "#ffedef",
+              "surface-primary": "#fffceb",
               primary: "#fcdc40",
               "primary-lighten-3": "#fdea8c",
               "primary-lighten-2": "#fef1b2",
-              "primary-lighten-1": "fffceb",
+              "primary-lighten-1": "#fffceb",
               secondary: "#6f6763",
               "secondary-lighten-1": "#827a75",
               "secondary-lighten-2": "#958d88",

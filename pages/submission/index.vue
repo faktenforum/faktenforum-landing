@@ -154,7 +154,4 @@ async function submit(requestId: string) {
 .v-btn--variant-text .v-btn__overlay {
   background: rgb(var(--v-theme-primary)) !important;
 }
-.v-btn--disabled {
-  opacity: 0.4;
-}
 </style>
