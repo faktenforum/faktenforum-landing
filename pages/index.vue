@@ -25,37 +25,58 @@
     <div class="h-spacer"></div>
     <v-sheet tag="section" class="pa-8 pa-sm-12">
       <v-row>
-        <v-col cols="12" xs="12" sm="6" md="4" lg="4" xl="4">
+        <v-col class="d-flex flex-column" cols="12" xs="12" sm="6" md="4" lg="4" xl="4">
           <h4 class="text-h5 mb-2 ff-title">{{ $t("landingPage.callToActions.join.title") }}</h4>
-          <span class="text-body-1">
+          <span class="text-body-1 flex-grow-1">
             {{ $t("landingPage.callToActions.join.text") }}
           </span>
-          <NuxtLink to="/submission/" class="mt-auto">
-            <v-btn class="w-100 text-secondary mt-6" color="primary" variant="flat" size="large">
-              {{ $t("landingPage.callToActions.join.button") }}</v-btn
+          <div class="w-100 text-center">
+            <newsletter-registration
+              class="w-100 button-max-width text-secondary mt-6"
+              color="primary"
+              variant="flat"
+              size="large"
             >
-          </NuxtLink>
+              {{ $t("landingPage.callToActions.join.button") }}</newsletter-registration
+            >
+          </div>
         </v-col>
         <v-col class="d-flex flex-column" cols="12" xs="12" sm="6" md="4" lg="4" xl="4">
           <h4 class="text-h5 mb-2 ff-title">{{ $t("landingPage.callToActions.submit.title") }}</h4>
-          <span class="text-body-1">
+          <span class="text-body-1 flex-grow-1">
             {{ $t("landingPage.callToActions.submit.text") }}
           </span>
-          <NuxtLink to="/submission/" class="mt-auto">
-            <v-btn class="w-100 text-secondary mt-6" color="primary" variant="flat" size="large">
-              {{ $t("landingPage.callToActions.submit.button") }}
-            </v-btn>
-          </NuxtLink>
+          <div class="w-100 text-center">
+            <NuxtLink to="/submission/" class="">
+              <v-btn
+                class="w-100 button-max-width text-secondary mt-6"
+                color="primary"
+                variant="flat"
+                size="large"
+              >
+                {{ $t("landingPage.callToActions.submit.button") }}
+              </v-btn>
+            </NuxtLink>
+          </div>
         </v-col>
-        <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
-          <h4 class="text-h5 mb-2 ff-title">{{ $t("landingPage.callToActions.learn.title") }}</h4>
-          <span class="text-body-1">
+        <v-col class="d-flex flex-column" cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
+          <h4 class="text-h5 mb-2 ff-title">
+            {{ $t("landingPage.callToActions.learn.title") }}
+          </h4>
+          <span class="text-body-1 flex-grow-1">
             {{ $t("landingPage.callToActions.learn.text") }}
           </span>
-          <div class="mt-auto">
-            <v-btn class="w-100 text-secondary mt-8" color="primary" variant="flat" size="large">
-              {{ $t("landingPage.callToActions.learn.button") }}
-            </v-btn>
+          <div class="">
+            <div class="w-100 text-center">
+              <v-btn
+                class="w-100 button-max-width text-secondary mt-6"
+                color="primary"
+                variant="flat"
+                size="large"
+              >
+                {{ $t("landingPage.callToActions.learn.button") }}
+              </v-btn>
+            </div>
           </div>
 
           <!-- <v-list :items="learnMoreItems" item-props lines="two">
@@ -98,5 +119,8 @@ h1 small {
 .v-card-item {
   padding-left: 0 !important;
   padding-right: 0 !important;
+}
+.button-max-width {
+  max-width: 298px;
 }
 </style>

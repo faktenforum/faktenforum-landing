@@ -12,14 +12,34 @@
     </v-row>
 
     <v-row>
-      <v-col v-if="pending" v-for="item in [1, 2, 3]" :key="item" cols="12" sm="4" md="4">
+      <v-col
+        v-if="pending"
+        v-for="(item, index) in [1, 2, 3]"
+        :key="item"
+        cols="12"
+        xs="12"
+        sm="6"
+        md="4"
+        lg="4"
+        xl="4"
+      >
         <v-skeleton-loader
           elevation="0"
           class="mx-auto border"
           type="image, article"
         ></v-skeleton-loader>
       </v-col>
-      <v-col v-else v-for="item in data || []" :key="item.id" cols="12" sm="4" md="4">
+      <v-col
+        v-else
+        v-for="(item, index) in data || []"
+        :key="item.id"
+        cols="12"
+        xs="12"
+        :sm="index === 2 ? 12 : 6"
+        md="4"
+        lg="4"
+        xl="4"
+      >
         <a :href="item.link" target="_blank">
           <v-hover v-slot="{ isHovering, props }">
             <v-card elevation="0">

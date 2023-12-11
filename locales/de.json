@@ -166,6 +166,14 @@
     "upload": "hochladen",
     "yes": "ja"
   },
+  "form": {
+    "validation": {
+      "email": {
+        "invalid": "Die E-Mail-Adresse muss gültig sein.",
+        "required": "Die E-Mail-Adresse wird erforderlich."
+      }
+    }
+  },
   "formRules": {
     "email": "E-mail ungültig",
     "password": {
@@ -223,6 +231,27 @@
     },
     "registerCallToAction": "Du hast noch keinen Account?",
     "title": "Anmelden"
+  },
+  "newsletter": {
+    "post": {
+      "button": {
+        "close": "ok"
+      },
+      "text": {
+        "hint": "Der Empfang der Bestätigungsmail kann {0} bis zu 10 Minuten dauern {1}.",
+        "info": "Bitte überprüfe deinen E-Mail-Posteingang und bestätige die E-Mail-Adresse. "
+      },
+      "title": "Deine Anmeldung war erfolgreich!"
+    },
+    "pre": {
+      "button": {
+        "close": "abbrechen",
+        "subscribe": "anmelden"
+      },
+      "label": "E-Mail-Adresse",
+      "text": "Du willst dabei sein? Trag Dich in den E-Mail-Verteiler ein und wir halten Dich auf dem Laufenden – zu unseren Veranstaltungen und anderen Neuigkeiten aus dem CORRECTIV.Faktenforum.",
+      "title": "Mitmachen"
+    }
   },
   "submitPage": {
     "acknowledgement": "Vielen Dank für Ihren Beitrag!",

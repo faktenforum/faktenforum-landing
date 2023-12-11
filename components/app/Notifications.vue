@@ -89,7 +89,7 @@ function remove(id: string) {
   top: 10px; /* Adjust this to set the distance from the top */
   right: 10px;
   width: 300px;
-  z-index: 1000;
+  z-index: 5000;
 }
 .notification {
   /* You can remove the position: fixed; from the notification as they will now stack inside the container */

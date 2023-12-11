@@ -1,11 +1,17 @@
 <template>
   <v-container class="pa-0 my-4 fluid d-flex flex-column">
     <div class="h-spacer"></div>
-    <v-sheet class="pa-12 h-100 flex-grow-1">
-      <h1 class="text-h4 mb-4 ff-title">{{ $t("submitPage.title") }}</h1>
-      <div class="text-body pb-2 mb-4">{{ $t("submitPage.text") }}</div>
+    <v-sheet class="px-0 px-sm-4 py-8 h-100 flex-grow-1">
+      <h1 class="mx-4 text-h4 mb-4 ff-title">{{ $t("submitPage.title") }}</h1>
+      <div class="mx-4 text-body pb-2 mb-4">{{ $t("submitPage.text") }}</div>
 
-      <v-tabs v-model="tab" color="secondary" density="compact">
+      <v-tabs
+        v-model="tab"
+        class="pa-0 px-0 px-sm-4 ma-0"
+        color="secondary"
+        density="compact"
+        show-arrows
+      >
         <v-tab value="file" class="text-h6 font-weight-bold pa-0 mr-4">{{
           $t("submitPage.tab.file")
         }}</v-tab>
@@ -16,7 +22,7 @@
           $t("submitPage.tab.claim")
         }}</v-tab>
       </v-tabs>
-      <v-window v-model="tab" class="py-6">
+      <v-window v-model="tab" class="mx-4 py-6">
         <v-window-item value="file">
           <claim-source-file-drop-zone v-model="claim" single-file />
         </v-window-item>
@@ -27,12 +33,11 @@
           <claim-source-add-description-zone v-model="claim.description" />
         </v-window-item>
       </v-window>
-      <div class="d-flex justify-center py-0">
+      <div class="d-flex justify-center py-0 mx-4">
         <v-btn
           :disabled="claimHasContent"
-          color="secondary"
+          color="primary"
           size="large"
-          variant="tonal"
           class="unfilled-button font-weight-bold"
           :loading="pendingRequests[`submit.claim`]"
           @click="submit('submit.claim')"

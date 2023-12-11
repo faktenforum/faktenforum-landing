@@ -7,7 +7,15 @@
     </v-col>
   </v-row>
   <v-row>
-    <v-col v-for="item of events.slice(0, 3)" cols="12" xs="12" sm="4" md="4">
+    <v-col
+      v-for="(item, index) of events.slice(0, 3)"
+      cols="12"
+      xs="12"
+      :sm="index === 2 ? 12 : 6"
+      md="4"
+      lg="4"
+      xl="4"
+    >
       <v-card class="elevation-0 rounded-0">
         <v-card-subtitle
           class="d-flex justify-space-between px-0 py-2 text-body-1 font-weight-bold text-secondary"
@@ -34,10 +42,7 @@
 </template>
 <script setup>
 const events = ref([]);
-const {
-  data,
-  refresh
-} = await useFetch(
+const { data, refresh } = await useFetch(
   "https://docs.google.com/spreadsheets/d/1LMXBxJ9tE4fwL3Fj9yJ5xf2g6u7lr0h7A0HDVpP7g3A/gviz/tq",
   { server: false }
 ).catch((error) => console.log(error));

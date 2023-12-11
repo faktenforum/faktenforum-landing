@@ -166,6 +166,14 @@
     "upload": "upload",
     "yes": "yes"
   },
+  "form": {
+    "validation": {
+      "email": {
+        "invalid": "E-mail must be valid.",
+        "required": "E-mail is required"
+      }
+    }
+  },
   "formRules": {
     "email": "E-mail not valid",
     "password": {
@@ -223,6 +231,27 @@
     },
     "registerCallToAction": "Don't have an account?",
     "title": "Sign in"
+  },
+  "newsletter": {
+    "post": {
+      "button": {
+        "close": "ok"
+      },
+      "text": {
+        "hint": "Receiving the confirmation email can take up {0} to 10 minutes {1}.",
+        "info": "Please check your e-mail inbox and confirm the e-mail address."
+      },
+      "title": "Your registration was successful!"
+    },
+    "pre": {
+      "button": {
+        "close": "cancel",
+        "subscribe": "subscribe"
+      },
+      "label": "E-mail",
+      "text": "Do you want to be part of it? Sign up for our e-mail newsletter, and we will keep you up to date on our events and other news from the CORRECTIV.facts forum.",
+      "title": "Ge involved"
+    }
   },
   "submitPage": {
     "acknowledgement": "Thank your for contributing!",
