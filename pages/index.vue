@@ -98,10 +98,65 @@
     </v-sheet>
     <fact-checks />
     <div class="h-spacer"></div>
+    <v-sheet tag="section" class="pa-8 pa-sm-12">
+      <v-row class="mt-8">
+        <v-col>
+          <!-- <h3 class="text-body-1 font-weight-black text-uppercase text-secondary-lighten-3"> -->
+          <h4 class="text-h4 mb-2">
+            {{ $t("landingPage.chatbot.title") }}
+          </h4>
+          <!-- </h3> -->
+          <p class="py-4">
+            {{ $t("landingPage.chatbot.description") }}
+          </p>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col cols="12" sm="12" md="6">
+          <v-text-field
+            v-model="newMessage"
+            class="custom-text-field"
+            :label="$t('chatbot.textfield.label')"
+            density="compact"
+            variant="solo"
+            hide-details
+            color="secondary"
+            @keyup.enter="onSendButtonClick"
+          >
+            <template v-slot:append-inner>
+              <v-btn
+                icon
+                variant="plain"
+                density="default"
+                size="default"
+                :disabled="newMessage.length === 0 || loading"
+                color="primary"
+                @click="onSendButtonClick"
+              >
+                <v-icon>mdi-send</v-icon>
+              </v-btn>
+            </template>
+          </v-text-field>
+        </v-col>
+      </v-row>
+    </v-sheet>
     <div class="h-spacer"></div>
   </v-container>
 </template>
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const store = useChatBotStore();
+const { sendMessage, activateBot } = store;
+const { loading } = storeToRefs(useChatBotStore());
+
+const newMessage = ref("");
+async function onSendButtonClick() {
+  activateBot();
+  sendMessage(newMessage.value);
+  newMessage.value = "";
+}
+</script>
+
 <style scoped>
 .v-container {
   max-width: 1066px;

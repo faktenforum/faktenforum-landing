@@ -166,6 +166,12 @@
     "upload": "upload",
     "yes": "yes"
   },
+  "factChecks": {
+    "button": {
+      "gotTo": "to CORRECTIV.Faktencheck",
+      "readArticle": "Read Article"
+    }
+  },
   "form": {
     "validation": {
       "email": {

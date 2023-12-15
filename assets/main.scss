@@ -86,3 +86,22 @@ button {
 .text-primary.v-btn--variant-plain {
   opacity: 0.75;
 }
+
+// Swiper theme styling
+.swiper-button-prev,
+.swiper-button-next {
+  color: rgb(var(--v-theme-primary));
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.swiper-pagination-bullet {
+  background: rgb(var(--v-theme-secondary)) !important;
+}
+.swiper-pagination-bullet-active {
+  background: rgb(var(--v-theme-background)) !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  top: var(--swiper-navigation-top-offset, 115px);
+}

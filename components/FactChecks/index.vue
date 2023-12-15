@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="pa-8 pa-sm-12 my-16">
+  <v-sheet class="pa-8 pa-sm-12">
     <v-row>
       <v-col>
         <h4 class="text-h4 mb-2">
@@ -10,115 +10,96 @@
         </p>
       </v-col>
     </v-row>
-
-    <v-row>
-      <v-col
-        v-if="pending"
-        v-for="(item, index) in [1, 2, 3]"
-        :key="item"
-        cols="12"
-        xs="12"
-        sm="6"
-        md="4"
-        lg="4"
-        xl="4"
-      >
+    <swiper
+      :slidesPerView="1"
+      :centeredSlides="false"
+      :slidesPerGroupSkip="1"
+      :grabCursor="true"
+      :keyboard="{
+        enabled: true
+      }"
+      :breakpoints="{
+        '600': {
+          slidesPerView: 2,
+          slidesPerGroup: 2
+        },
+        '960': {
+          slidesPerView: 3,
+          slidesPerGroup: 3
+        }
+      }"
+      :scrollbar="false"
+      :navigation="true"
+      :pagination="{
+        clickable: true
+      }"
+      :auto-height="false"
+      :modules="modules"
+    >
+      <swiper-slide v-if="pending" v-for="(item, index) in [1, 2]">
         <v-skeleton-loader
           elevation="0"
           class="mx-auto border"
           type="image, article"
         ></v-skeleton-loader>
-      </v-col>
-      <v-col
-        v-else
-        v-for="(item, index) in data || []"
-        :key="item.id"
-        cols="12"
-        xs="12"
-        :sm="index === 2 ? 12 : 6"
-        md="4"
-        lg="4"
-        xl="4"
-      >
-        <a :href="item.link" target="_blank">
-          <v-hover v-slot="{ isHovering, props }">
-            <v-card elevation="0">
-              <v-img
-                :src="
-                  item.yoast_head_json.og_image &&
-                  item.yoast_head_json.og_image[0] &&
-                  item.yoast_head_json.og_image[0].url
-                "
-                height="200px"
-                cover
-              ></v-img>
+      </swiper-slide>
+      <swiper-slide v-for="(item, index) in data">
+        <v-card elevation="0" class="pa-2 pb-6">
+          <v-img
+            :src="
+              item.yoast_head_json.og_image &&
+              item.yoast_head_json.og_image[0] &&
+              item.yoast_head_json.og_image[0].url
+            "
+            height="200px"
+            cover
+          ></v-img>
 
-              <v-card-title
-                :class="{ 'on-hover': isHovering }"
-                v-bind="props"
-                class="px-0 pt-4 text-h6 font-weight-bold"
-              >
-                {{ item.yoast_head_json.title }}
-              </v-card-title>
-              <v-card-text class="px-0 py-2 text-body-1">
-                <div v-html="item.yoast_head_json.description"></div>
-              </v-card-text>
-            </v-card>
-          </v-hover>
-        </a>
-      </v-col>
-    </v-row>
-
-    <v-row class="mt-8">
-      <v-col>
-        <!-- <h3 class="text-body-1 font-weight-black text-uppercase text-secondary-lighten-3"> -->
-        <h4 class="text-h4 mb-2">
-          {{ $t("landingPage.chatbot.title") }}
-        </h4>
-        <!-- </h3> -->
-        <p class="py-4">
-          {{ $t("landingPage.chatbot.description") }}
-        </p>
-      </v-col>
-    </v-row>
-
-    <v-row>
-      <v-col cols="12" sm="12" md="6">
-        <v-text-field
-          v-model="newMessage"
-          class="custom-text-field"
-          :label="$t('chatbot.textfield.label')"
-          density="compact"
-          variant="solo"
-          hide-details
-          color="secondary"
-          @keyup.enter="onSendButtonClick"
+          <v-card-title class="px-0 pt-4 text-h6 font-weight-bold">
+            {{ item.yoast_head_json.title }}
+          </v-card-title>
+          <v-card-text class="px-0 text-body-1">
+            <div v-html="item.yoast_head_json.description" style="width: 98%"></div>
+          </v-card-text>
+          <v-card-actions class="justify-end">
+            <a :href="item.link" target="_blank">
+              <v-btn class="px-6" color="secondary" variant="text" size="large">
+                {{ $t("factChecks.button.readArticle") }}
+              </v-btn>
+            </a>
+          </v-card-actions>
+        </v-card>
+      </swiper-slide>
+      <swiper-slide>
+        <div
+          elevation="0"
+          class="d-flex align-center justify-center"
+          style="
+            width: 98%;
+            height: 330px;
+            background: url('/images/correctiv-faktencheck.jpg') no-repeat center center / cover;
+          "
         >
-          <template v-slot:append-inner>
-            <v-btn
-              icon
-              variant="plain"
-              density="default"
-              size="default"
-              :disabled="newMessage.length === 0 || loading"
-              color="primary"
-              @click="onSendButtonClick"
-            >
-              <v-icon>mdi-send</v-icon>
-            </v-btn>
-          </template>
-        </v-text-field>
-      </v-col>
-    </v-row>
+          <a href="https://correctiv.org/faktencheck/" target="_blank">
+            <v-btn class="text-secondary" variant="flat" color="primary" size="large">
+              {{ $t("factChecks.button.gotTo") }}
+            </v-btn></a
+          >
+        </div>
+      </swiper-slide>
+    </swiper>
   </v-sheet>
 </template>
 
 <script lang="ts" setup>
-const store = useChatBotStore();
-const { sendMessage, activateBot, minimizeChat } = store;
-const { loading } = storeToRefs(useChatBotStore());
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+import "swiper/css/scrollbar";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Keyboard, Scrollbar, Navigation, Pagination } from "swiper/modules";
 
-const newMessage = ref("");
+const modules = [Keyboard, Scrollbar, Navigation, Pagination];
 type Post = {
   id: number;
   link: string;
@@ -131,15 +112,15 @@ type Post = {
   };
 };
 
-const url = "https://correctiv.org/wp-json/wp/v2/posts/?per_page=3&order=desc&orderby=date";
+const url = "https://correctiv.org/wp-json/wp/v2/posts/?per_page=8&order=desc&orderby=date";
 
 const { data, pending } = useFetch<Post[]>(url);
 
-async function onSendButtonClick() {
-  activateBot();
-  sendMessage(newMessage.value);
-  newMessage.value = "";
-}
+watch(data, (newValue) => {
+  if (newValue) {
+    console.log(JSON.parse(JSON.stringify(newValue)));
+  }
+});
 </script>
 
 <style scoped>
