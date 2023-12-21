@@ -1,8 +1,8 @@
-name: FF-Frontend | Deploy
+name: FF-Landing | Deploy
 
 on:
   workflow_run:
-    workflows: [FF-Frontend | Build & Push Docker Images]
+    workflows: [FF-Landing | Build & Push Docker Images]
     types: [completed]
     branches: [main, production]
 
