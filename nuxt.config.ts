@@ -4,15 +4,11 @@ const API_URL = `${process.env.BUILD_API_BASE_URL || "http://127.0.0.1:8083"}/ap
 
 export default defineNuxtConfig({
   ssr: true,
+  devServer: {
+    port: 5000
+  },
   // devtools: { enabled: true },
-  modules: [
-    "@pinia/nuxt",
-    "@sidebase/nuxt-auth",
-    "@nuxtjs/i18n",
-    "vuetify-nuxt-module",
-    "@vueuse/nuxt",
-    "dayjs-nuxt"
-  ],
+  modules: ["@pinia/nuxt", "@nuxtjs/i18n", "vuetify-nuxt-module", "@vueuse/nuxt", "dayjs-nuxt"],
   experimental: {
     inlineSSRStyles: false
   },
@@ -28,32 +24,6 @@ export default defineNuxtConfig({
     }
   },
 
-  auth: {
-    provider: {
-      type: "local",
-      pages: { login: "/login" },
-
-      endpoints: {
-        signIn: { path: "/login", method: "post" },
-        signOut: { path: "/logout", method: "post" },
-        signUp: { path: "/register", method: "post" },
-        getSession: { path: "/session", method: "get" }
-      },
-      sessionDataType: {
-        id: "string",
-        email: "string",
-        role: "ADMIN | USER"
-      }
-    },
-    session: {
-      enableRefreshPeriodically: 600000, // 10 minutes
-      enableRefreshOnWindowFocus: true
-    },
-    baseURL: ` ${API_URL}/auth`,
-    isEnabled: true
-
-    // Whether to periodically refresh the session. Change this to `true` for a refresh every seconds or set this to a number like `5000` for a refresh every 5000 milliseconds (aka: 5 seconds)    enableSessionRefreshPeriodically: false,    // Whether to refresh the session whenever a window focus event happens, i.e, when your user refocuses the window. Set this to `false` to turn this off    enableSessionRefreshOnWindowFocus: true,
-  },
   dayjs: {
     locales: ["en", "de"],
     plugins: ["relativeTime", "timezone"],
@@ -130,5 +100,6 @@ export default defineNuxtConfig({
       styles: { configFile: "/assets/main.scss" } // true | 'none' | 'expose' | 'sass' | { configFile: string },
     }
   },
+
   css: ["vuetify/lib/styles/main.sass"]
 });
